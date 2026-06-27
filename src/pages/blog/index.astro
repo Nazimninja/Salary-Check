@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+const posts = [
+  { slug:'hourly-to-salary-guide', title:'Hourly to Salary: The Complete US Guide (2025)', excerpt:'Everything you need to know about converting hourly wages to annual salary — formulas, overtime, PTO, and real examples for every pay bracket.', tag:'Guide', readTime:'6 min', date:'Jun 18, 2025' },
+  { slug:'us-take-home-pay-guide', title:'US Take-Home Pay: What Comes Out of Your Paycheck and Why', excerpt:'Federal tax, Social Security, Medicare, state tax, 401k — a clear breakdown of every deduction on your US paycheck and how to keep more of your money.', tag:'Tax', readTime:'7 min', date:'Jun 16, 2025' },
+  { slug:'salary-negotiation-guide', title:'How to Negotiate Salary in the US: Scripts, Timing and Tactics', excerpt:'The average American leaves $5,000–$10,000 on the table by not negotiating. Here is exactly how to ask for more — and what to say when they push back.', tag:'Negotiation', readTime:'8 min', date:'Jun 14, 2025' },
+  { slug:'401k-guide-beginners', title:'401k Explained: How Much Should You Contribute in 2025?', excerpt:'A plain-English guide to 401k plans — contribution limits, employer match, traditional vs Roth, and how much to save at every income level.', tag:'Retirement', readTime:'6 min', date:'Jun 12, 2025' },
+];
+---
+<Base title="US Salary & Tax Guides | SalaryTools Blog" description="Free guides on US salaries, paychecks, taxes, 401k, and salary negotiation. Updated for 2025." page="blog">
+<div style="text-align:center;padding:4rem 1.5rem 2.5rem;">
+  <div class="sec-label">Blog</div>
+  <h1 style="font-family:var(--font-display);font-size:clamp(28px,5vw,42px);font-weight:700;letter-spacing:-1.5px;margin:0.5rem 0 1rem;">Understand your paycheck</h1>
+  <p style="font-size:16px;color:var(--ink3);max-width:420px;margin:0 auto;line-height:1.65;">Plain-English guides on US salaries, taxes, 401k, and negotiating better pay.</p>
+</div>
+<section style="padding:1rem 0 5rem;">
+  <div class="container">
+    <div class="blog-grid">
+      {posts.map(p => (
+        <a href={`/blog/${p.slug}`} class="blog-card">
+          <div class="blog-card-img">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-tag">{p.tag}</div>
+            <div class="blog-card-title">{p.title}</div>
+            <div class="blog-card-excerpt">{p.excerpt}</div>
+            <div class="blog-card-meta"><span>{p.date}</span><span>·</span><span>{p.readTime} read</span></div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+</Base>

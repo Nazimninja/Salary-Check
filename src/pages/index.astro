@@ -1,0 +1,451 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Hourly to Salary Calculator | Annual & Monthly Pay Converter | SalaryTools.us"
+  description="Convert hourly wage to annual salary instantly. See weekly, biweekly, monthly pay. Adjust for overtime, PTO days, and hours per week. Free US salary calculator."
+  page="hourly"
+>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Hourly to Salary Calculator",
+  "operatingSystem": "Web",
+  "applicationCategory": "FinanceApplication",
+  "description": "Convert hourly wage to annual salary. Includes overtime, PTO, and all pay period breakdowns for US workers.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "url": "https://salarytools.us"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How do I convert hourly to annual salary?", "acceptedAnswer": { "@type": "Answer", "text": "Multiply your hourly rate by the number of hours worked per week, then multiply by 52 weeks. Example: $25/hr × 40 hours × 52 weeks = $52,000 per year." } },
+    { "@type": "Question", "name": "How many working hours are in a year?", "acceptedAnswer": { "@type": "Answer", "text": "A standard full-time year has 2,080 working hours (40 hours/week × 52 weeks). After subtracting 10 federal holidays, it's approximately 2,000 hours. Your actual hours depend on your PTO and holiday policy." } },
+    { "@type": "Question", "name": "What is $20 an hour annually?", "acceptedAnswer": { "@type": "Answer", "text": "$20 per hour equals $41,600 per year working 40 hours per week for 52 weeks ($20 × 40 × 52). After taxes, take-home is approximately $33,000–$36,000 depending on your state and filing status." } },
+    { "@type": "Question", "name": "What is a good hourly wage in the US?", "acceptedAnswer": { "@type": "Answer", "text": "The federal minimum wage is $7.25/hour. The median US hourly wage is around $22–25/hour. A comfortable living wage in most US cities requires $20–30/hour. In high cost-of-living cities like San Francisco or NYC, $35–50/hour is considered a living wage." } }
+  ]
+}
+</script>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-chip">
+    <span class="hero-chip-dot"></span>
+    US Salary Calculator · Updated 2025
+  </div>
+  <h1>Convert <strong>hourly wage</strong><br>to annual salary</h1>
+  <p class="hero-sub">Instantly see your annual, monthly, weekly, and daily pay. Adjust for overtime, PTO days, and custom hours. Free, no login.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">6</div><div class="hstat-l">Pay periods shown</div></div>
+    <div class="hstat"><div class="hstat-n">OT</div><div class="hstat-l">Overtime included</div></div>
+    <div class="hstat"><div class="hstat-n">Free</div><div class="hstat-l">No sign up</div></div>
+    <div class="hstat"><div class="hstat-n">Fast</div><div class="hstat-l">Instant results</div></div>
+  </div>
+</div>
+
+<!-- TOOL SWITCHER -->
+<div class="tool-switcher">
+  <div class="switcher-bar">
+    <a href="/" class="switcher-btn active">
+      <div class="switcher-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+      </div>
+      <div>
+        <span class="switcher-label">Hourly ↔ Salary</span>
+        <span class="switcher-sub">Convert any pay rate to annual</span>
+      </div>
+    </a>
+    <a href="/salary-calculator" class="switcher-btn">
+      <div class="switcher-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
+      </div>
+      <div>
+        <span class="switcher-label">Take-Home Pay</span>
+        <span class="switcher-sub">After federal & state taxes</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- TOOL GRID -->
+<div class="tool-grid">
+
+  <!-- LEFT INPUT -->
+  <div>
+    <div class="card">
+      <div class="card-head">
+        <div class="ch-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+        </div>
+        <div>
+          <div class="ch-title">Your pay rate</div>
+          <div class="ch-sub">Enter any rate — we convert everything</div>
+        </div>
+      </div>
+
+      <!-- DIRECTION TOGGLE -->
+      <div class="field">
+        <label class="lbl">Convert from</label>
+        <div style="display:flex;gap:6px;">
+          <button class="dir-btn active" id="btnHourly" onclick="setDir('hourly',this)">Hourly → Annual</button>
+          <button class="dir-btn" id="btnAnnual" onclick="setDir('annual',this)">Annual → Hourly</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="lbl" id="rateLabel">Hourly wage</label>
+        <div class="pfx">
+          <span>$</span>
+          <input type="number" id="rate" placeholder="25.00" min="0" step="0.01" oninput="calc()" />
+        </div>
+        <div class="hint" id="rateHint">Enter your hourly pay rate</div>
+      </div>
+
+      <div class="input-section">
+        <div class="input-section-label">Work Schedule</div>
+
+        <div class="field">
+          <label class="lbl">Hours per week</label>
+          <select id="hoursPerWeek" onchange="calc()">
+            <option value="20">20 hours (Part-time)</option>
+            <option value="30">30 hours (Part-time)</option>
+            <option value="32">32 hours (4-day week)</option>
+            <option value="40" selected>40 hours (Full-time)</option>
+            <option value="45">45 hours</option>
+            <option value="50">50 hours</option>
+            <option value="60">60 hours</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="lbl">Weeks worked per year</label>
+          <select id="weeksPerYear" onchange="calc()">
+            <option value="52" selected>52 weeks (no unpaid time off)</option>
+            <option value="51">51 weeks (1 week unpaid)</option>
+            <option value="50">50 weeks (2 weeks unpaid)</option>
+            <option value="48">48 weeks (4 weeks unpaid)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="lbl">Paid time off (PTO) days/year <span class="opt">(optional)</span></label>
+          <select id="pto" onchange="calc()">
+            <option value="0">0 days (no PTO)</option>
+            <option value="5">5 days (1 week)</option>
+            <option value="10" selected>10 days (2 weeks — US average)</option>
+            <option value="15">15 days (3 weeks)</option>
+            <option value="20">20 days (4 weeks)</option>
+            <option value="25">25 days (5 weeks)</option>
+          </select>
+          <div class="hint">PTO is paid — it doesn't reduce your annual salary</div>
+        </div>
+      </div>
+
+      <div class="input-section">
+        <div class="input-section-label">Overtime <span style="font-size:11px;font-weight:400;color:var(--ink3);text-transform:none;letter-spacing:0;">(optional)</span></div>
+
+        <div class="field">
+          <label class="lbl">Overtime hours per week</label>
+          <select id="otHours" onchange="calc()">
+            <option value="0" selected>No overtime</option>
+            <option value="2">2 hours OT/week</option>
+            <option value="5">5 hours OT/week</option>
+            <option value="10">10 hours OT/week</option>
+            <option value="15">15 hours OT/week</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="lbl">Overtime rate</label>
+          <select id="otRate" onchange="calc()">
+            <option value="1.5" selected>1.5× (standard US overtime)</option>
+            <option value="2">2× (double time)</option>
+            <option value="2.5">2.5× (holiday pay)</option>
+          </select>
+          <div class="hint">Federal law requires 1.5× for hours over 40/week</div>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="calc()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Calculate All Pay Periods
+      </button>
+    </div>
+  </div>
+
+  <!-- RIGHT OUTPUT -->
+  <div>
+
+    <!-- MAIN RESULT -->
+    <div class="card result-hidden" id="mainResult">
+      <div class="result-hero">
+        <div class="result-label" id="mainLabel">Annual Salary</div>
+        <div class="result-value" id="mainValue">$0</div>
+        <div class="result-sub" id="mainSub">Based on your inputs</div>
+      </div>
+
+      <!-- ALL PAY PERIODS -->
+      <div style="margin-bottom:14px;">
+        <div class="brow-section-label">All pay periods</div>
+        <div class="breakdown" id="payPeriods"></div>
+      </div>
+
+      <!-- CHART -->
+      <div>
+        <div class="brow-section-label">Pay breakdown</div>
+        <div class="chart-wrap" id="chartWrap"></div>
+      </div>
+    </div>
+
+    <!-- EQUIVALENT RATES -->
+    <div class="card result-hidden" id="equivCard">
+      <div class="card-head">
+        <div class="ch-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <div>
+          <div class="ch-title">Equivalent rates</div>
+          <div class="ch-sub">All converted from your input</div>
+        </div>
+      </div>
+      <div class="equiv-grid" id="equivGrid"></div>
+
+      <!-- CROSS-TOOL CTA -->
+      <div class="cross-cta">
+        <div class="cross-cta-text">
+          <strong>What's your take-home after taxes?</strong>
+          See your actual paycheck after federal & state taxes
+        </div>
+        <a href="/salary-calculator" class="cross-cta-btn">Calculate →</a>
+      </div>
+    </div>
+
+    <!-- QUICK REFERENCE TABLE -->
+    <div class="card result-hidden" id="refCard">
+      <div class="card-head">
+        <div class="ch-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+        </div>
+        <div>
+          <div class="ch-title">Common hourly → annual</div>
+          <div class="ch-sub">Quick reference for 40 hrs/week</div>
+        </div>
+      </div>
+      <div class="breakdown">
+        <div class="brow"><span class="brow-lbl">$15/hour</span><span class="brow-val">$31,200/year</span></div>
+        <div class="brow"><span class="brow-lbl">$18/hour</span><span class="brow-val">$37,440/year</span></div>
+        <div class="brow"><span class="brow-lbl">$20/hour</span><span class="brow-val">$41,600/year</span></div>
+        <div class="brow"><span class="brow-lbl">$25/hour</span><span class="brow-val">$52,000/year</span></div>
+        <div class="brow"><span class="brow-lbl">$30/hour</span><span class="brow-val">$62,400/year</span></div>
+        <div class="brow"><span class="brow-lbl">$35/hour</span><span class="brow-val">$72,800/year</span></div>
+        <div class="brow"><span class="brow-lbl">$40/hour</span><span class="brow-val">$83,200/year</span></div>
+        <div class="brow"><span class="brow-lbl">$50/hour</span><span class="brow-val">$104,000/year</span></div>
+        <div class="brow"><span class="brow-lbl">$75/hour</span><span class="brow-val">$156,000/year</span></div>
+        <div class="brow total"><span class="brow-lbl">$100/hour</span><span class="brow-val">$208,000/year</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section style="padding:3rem 0 2rem;border-top:1px solid var(--bd);">
+  <div class="container">
+    <div class="sec-label">How it works</div>
+    <div class="sec-title">How hourly to salary is calculated</div>
+    <div class="steps">
+      <div class="step"><div class="step-n">01</div><h3>Enter hourly rate</h3><p>Type your hourly pay. Or enter your annual salary to convert back to hourly.</p></div>
+      <div class="step"><div class="step-n">02</div><h3>Set your schedule</h3><p>Choose hours per week, weeks worked per year, and any unpaid time off.</p></div>
+      <div class="step"><div class="step-n">03</div><h3>Add overtime</h3><p>Include weekly overtime hours at 1.5×, 2×, or 2.5× for an accurate total.</p></div>
+      <div class="step"><div class="step-n">04</div><h3>See every period</h3><p>Instantly get annual, monthly, biweekly, weekly, daily, and hourly rates.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:1.5rem 0 3rem;">
+  <div class="container" style="max-width:720px;">
+    <div class="sec-label" style="text-align:left;margin-bottom:6px;">FAQ</div>
+    <div class="sec-title" style="text-align:left;margin-bottom:1.5rem;font-size:clamp(20px,3vw,26px);">Common questions</div>
+    <div class="faq-item" onclick="faq(this)"><div class="faq-q">How do I convert hourly to annual salary?<span class="faq-icon">+</span></div><div class="faq-a">Multiply your hourly rate × hours per week × weeks per year. Standard formula: hourly × 40 × 52 = annual. Example: $25/hr × 40 × 52 = $52,000/year. If you work more or fewer hours, adjust accordingly using our calculator above.</div></div>
+    <div class="faq-item" onclick="faq(this)"><div class="faq-q">How many work hours are in a year?<span class="faq-icon">+</span></div><div class="faq-a">Standard full-time = 2,080 hours (40 hrs × 52 weeks). After 10 federal holidays = ~2,000 hours. After 2 weeks PTO = ~1,920 hours. Your actual hours depend on your schedule and employer's holiday policy.</div></div>
+    <div class="faq-item" onclick="faq(this)"><div class="faq-q">What is $20 an hour annually?<span class="faq-icon">+</span></div><div class="faq-a">$20/hour = $41,600/year at 40 hours/week × 52 weeks. Monthly: $3,467. Biweekly paycheck: $1,600. Weekly: $800. After federal taxes (single filer), take-home is approximately $33,500–$35,000 depending on your state.</div></div>
+    <div class="faq-item" onclick="faq(this)"><div class="faq-q">Does PTO count in annual salary calculation?<span class="faq-icon">+</span></div><div class="faq-a">Yes. Paid time off (PTO) is paid — it doesn't reduce your annual salary. If you earn $25/hour and have 10 PTO days, you still earn the full $52,000/year. Only unpaid time off reduces your actual annual earnings.</div></div>
+    <div class="faq-item" onclick="faq(this)"><div class="faq-q">What is the US federal overtime law?<span class="faq-icon">+</span></div><div class="faq-a">Under the Fair Labor Standards Act (FLSA), non-exempt employees must be paid at least 1.5× their regular rate for all hours worked over 40 in a workweek. Some states (California, Colorado) have additional daily overtime rules. Salaried exempt employees generally don't receive overtime pay.</div></div>
+    <div class="faq-item" onclick="faq(this)"><div class="faq-q">What is a good hourly wage in the US?<span class="faq-icon">+</span></div><div class="faq-a">Federal minimum wage: $7.25/hour. Median US hourly wage: ~$22-25/hour. Living wage in most cities: $20-30/hour. Living wage in high-cost cities (NYC, SF, Seattle): $35-50+/hour. A "good" wage varies significantly by location, industry, and experience.</div></div>
+    <div class="faq-item" onclick="faq(this)"><div class="faq-q">How do I convert salary to hourly rate?<span class="faq-icon">+</span></div><div class="faq-a">Divide your annual salary by total hours worked per year. Standard: annual ÷ 2,080 = hourly. Example: $60,000 ÷ 2,080 = $28.85/hour. Use the "Annual → Hourly" toggle above to calculate this automatically.</div></div>
+  </div>
+</section>
+
+<!-- BLOG CTA -->
+<section style="padding:0 0 4rem;">
+  <div class="container">
+    <div style="background:linear-gradient(135deg,var(--blue),var(--purple));border-radius:20px;padding:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:6px;">Salary guides</div>
+        <div style="font-family:var(--font-display);font-size:clamp(18px,3vw,22px);font-weight:700;color:#fff;letter-spacing:-0.4px;margin-bottom:8px;">Learn how US salaries work</div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;max-width:400px;">Guides on negotiating pay, understanding paychecks, overtime rules, and maximizing take-home pay.</p>
+      </div>
+      <a href="/blog" style="background:#fff;color:var(--blue);padding:12px 24px;border-radius:12px;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap;font-family:var(--font-display);">Read guides →</a>
+    </div>
+  </div>
+</section>
+
+</Base>
+
+<style>
+.dir-btn { flex:1; padding:9px 12px; border:1.5px solid var(--bd2); border-radius:9px; background:transparent; font-family:var(--font-body); font-size:13px; font-weight:500; color:var(--ink3); cursor:pointer; transition:all 0.14s; }
+.dir-btn.active { background:var(--blue); color:#fff; border-color:var(--blue); font-weight:600; }
+.brow-section-label { font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--ink3);margin-bottom:8px; }
+</style>
+
+<script>
+let direction = 'hourly';
+
+function setDir(d, btn) {
+  direction = d;
+  document.querySelectorAll('.dir-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const label = document.getElementById('rateLabel');
+  const hint = document.getElementById('rateHint');
+  const input = document.getElementById('rate');
+  if (d === 'hourly') {
+    label.textContent = 'Hourly wage';
+    hint.textContent = 'Enter your hourly pay rate';
+    input.placeholder = '25.00';
+    if (parseFloat(input.value) >= 1000) {
+      input.value = (parseFloat(input.value) / 2080).toFixed(2);
+    }
+  } else {
+    label.textContent = 'Annual salary';
+    hint.textContent = 'Enter your annual gross salary';
+    input.placeholder = '60000';
+    if (parseFloat(input.value) > 0 && parseFloat(input.value) < 1000) {
+      input.value = Math.round(parseFloat(input.value) * 2080);
+    }
+  }
+  calc();
+}
+
+function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+function fmtDec(n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+
+function calc() {
+  const rate = parseFloat(document.getElementById('rate').value) || 0;
+  if (rate <= 0) {
+    ['mainResult','equivCard','refCard'].forEach(id => {
+      document.getElementById(id).className = 'card result-hidden';
+    });
+    return;
+  }
+
+  const hoursPerWeek = parseFloat(document.getElementById('hoursPerWeek').value);
+  const weeksPerYear = parseFloat(document.getElementById('weeksPerYear').value);
+  const otHours = parseFloat(document.getElementById('otHours').value);
+  const otRate = parseFloat(document.getElementById('otRate').value);
+
+  let hourly, annual;
+
+  if (direction === 'hourly') {
+    hourly = rate;
+    const regularAnnual = hourly * hoursPerWeek * weeksPerYear;
+    const otAnnual = hourly * otRate * otHours * weeksPerYear;
+    annual = regularAnnual + otAnnual;
+  } else {
+    annual = rate;
+    // Solve: annual = hourly * weeksPerYear * (hoursPerWeek + otHours * otRate)
+    hourly = annual / (weeksPerYear * (hoursPerWeek + (otHours * otRate)));
+  }
+
+  const monthly = annual / 12;
+  const semiMonthly = annual / 24;
+  const biWeekly = annual / 26;
+  const weekly = annual / 52;
+  const daily = annual / (weeksPerYear * 5);
+
+  // Main result
+  document.getElementById('mainLabel').textContent = direction === 'hourly' ? 'Annual Salary' : 'Hourly Rate';
+  document.getElementById('mainValue').textContent = direction === 'hourly' ? fmt(annual) : fmtDec(hourly);
+  document.getElementById('mainSub').textContent = direction === 'hourly'
+    ? `${hoursPerWeek} hrs/week × ${weeksPerYear} weeks${otHours > 0 ? ` + ${otHours} OT hrs` : ''}`
+    : `Based on $${fmt(annual).slice(1)}/year ÷ ${hoursPerWeek} hrs × ${weeksPerYear} weeks${otHours > 0 ? ` + ${otHours} OT hrs` : ''}`;
+
+  // Pay periods
+  const periods = [
+    { label: 'Annual', val: annual, color: '#2563eb' },
+    { label: 'Monthly (÷12)', val: monthly, color: '#7c3aed' },
+    { label: 'Semi-monthly (÷24)', val: semiMonthly, color: '#0891b2' },
+    { label: 'Biweekly (÷26)', val: biWeekly, color: '#059669' },
+    { label: 'Weekly (÷52)', val: weekly, color: '#d97706' },
+    { label: 'Daily (÷260)', val: daily, color: '#dc2626' },
+    { label: 'Hourly', val: hourly, color: '#64748b' },
+  ];
+
+  document.getElementById('payPeriods').innerHTML = periods.map((p, i) => `
+    <div class="brow ${i === 0 ? 'total' : ''}">
+      <span class="brow-lbl"><span class="bdot" style="background:${p.color};"></span>${p.label}</span>
+      <span class="brow-val ${i === 0 ? '' : ''}">${i === periods.length - 1 ? fmtDec(p.val) : fmt(p.val)}</span>
+    </div>
+  `).join('');
+
+  // Chart — show where annual comes from (splitting regular pay into Worked vs PTO)
+  const regularAnnual = hourly * hoursPerWeek * weeksPerYear;
+  const otAnnual = hourly * otRate * otHours * weeksPerYear;
+
+  const ptoDays = parseFloat(document.getElementById('pto').value) || 0;
+  const ptoHours = Math.min(ptoDays * (hoursPerWeek / 5), hoursPerWeek * weeksPerYear);
+  const ptoAnnual = hourly * ptoHours;
+  const workedAnnual = Math.max(0, regularAnnual - ptoAnnual);
+
+  const chartItems = [
+    { label: 'Worked pay', val: workedAnnual, color: '#2563eb' },
+    ...(ptoAnnual > 0 ? [{ label: 'Paid time off (PTO)', val: ptoAnnual, color: '#059669' }] : []),
+    ...(otAnnual > 0 ? [{ label: 'Overtime pay', val: otAnnual, color: '#7c3aed' }] : []),
+  ];
+
+  document.getElementById('chartWrap').innerHTML = chartItems.map(it => {
+    const pct = Math.round((it.val / annual) * 100);
+    return `<div class="chart-row">
+      <div class="chart-lbl">${it.label}</div>
+      <div class="chart-track"><div class="chart-fill" style="width:${pct}%;background:${it.color};"></div></div>
+      <div class="chart-pct">${pct}%</div>
+    </div>`;
+  }).join('');
+
+  // Equiv grid
+  const equivItems = [
+    { val: fmt(annual), lbl: 'Per year' },
+    { val: fmt(monthly), lbl: 'Per month' },
+    { val: fmt(biWeekly), lbl: 'Per paycheck (biweekly)' },
+    { val: fmtDec(hourly), lbl: 'Per hour' },
+  ];
+
+  let equivHtml = equivItems.map(e => `<div class="equiv-item"><div class="equiv-val">${e.val}</div><div class="equiv-lbl">${e.lbl}</div></div>`).join('');
+  if (ptoAnnual > 0) {
+    equivHtml += `<div class="equiv-item" style="grid-column: span 2; background: var(--greenl); border-color: rgba(22,163,74,0.2);"><div class="equiv-val" style="color: var(--green);">${fmt(ptoAnnual)}</div><div class="equiv-lbl" style="color: var(--green); font-weight: 500;">Value of PTO (${ptoDays} days/yr included)</div></div>`;
+  }
+  document.getElementById('equivGrid').innerHTML = equivHtml;
+
+  ['mainResult','equivCard','refCard'].forEach(id => {
+    document.getElementById(id).className = 'card result-show';
+  });
+}
+
+function faq(el) {
+  const a = el.querySelector('.faq-a'), ic = el.querySelector('.faq-icon');
+  const open = a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(x => x.classList.remove('open'));
+  document.querySelectorAll('.faq-icon').forEach(x => x.classList.remove('open'));
+  if (!open) { a.classList.add('open'); ic.classList.add('open'); }
+}
+
+window.addEventListener('load', () => {
+  document.getElementById('rate').value = 25;
+  calc();
+});
+</script>

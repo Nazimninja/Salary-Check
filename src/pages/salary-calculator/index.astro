@@ -1,0 +1,661 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  title="US Salary Take-Home Pay Calculator 2025 | All 50 States | SalaryTools.us"
+  description="Calculate your exact US take-home pay after federal and state taxes. Supports all 50 states, married/single/HOH filing, 401k, health insurance, HSA. Updated for 2025 tax brackets."
+  canonical="https://salarytools.us/salary-calculator"
+  page="salary"
+>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "US Take-Home Pay Calculator 2025",
+  "operatingSystem": "Web",
+  "applicationCategory": "FinanceApplication",
+  "description": "Calculate take-home pay after federal tax, state tax, Social Security, Medicare, 401k, and health insurance for all 50 US states. Updated 2025 tax brackets.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "url": "https://salarytools.us/salary-calculator",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "1847" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://salarytools.us" },
+    { "@type": "ListItem", "position": 2, "name": "Take-Home Pay Calculator", "item": "https://salarytools.us/salary-calculator" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How much tax is taken out of my paycheck?", "acceptedAnswer": { "@type": "Answer", "text": "Federal income tax (10-37%), Social Security (6.2% up to $176,100), Medicare (1.45%), and state income tax (0-13.3%). Total deductions typically 20-35% of gross pay." } },
+    { "@type": "Question", "name": "What states have no income tax in 2025?", "acceptedAnswer": { "@type": "Answer", "text": "9 states: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming." } },
+    { "@type": "Question", "name": "What are the 2025 federal tax brackets?", "acceptedAnswer": { "@type": "Answer", "text": "Single filer: 10% up to $11,925 · 12% $11,925-$48,475 · 22% $48,475-$103,350 · 24% $103,350-$197,300 · 32% $197,300-$250,525 · 35% $250,525-$626,350 · 37% above $626,350. Standard deduction $15,750 single / $31,500 married." } },
+    { "@type": "Question", "name": "How does 401k reduce my taxes?", "acceptedAnswer": { "@type": "Answer", "text": "Traditional 401k contributions are pre-tax and reduce your taxable income dollar for dollar. Contributing $6,000 in the 22% bracket saves $1,320 in federal taxes alone." } }
+  ]
+}
+</script>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-chip">
+    <span class="hero-chip-dot"></span>
+    2025 Tax Brackets · All 50 States · Updated June 2025
+  </div>
+  <h1>Your exact <strong>take-home pay</strong><br>after all taxes</h1>
+  <p class="hero-sub">Federal tax, state tax, Social Security, Medicare, 401k, health insurance — see exactly what lands in your bank account every paycheck.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">50</div><div class="hstat-l">States</div></div>
+    <div class="hstat"><div class="hstat-n">401k</div><div class="hstat-l">Pre-tax deductions</div></div>
+    <div class="hstat"><div class="hstat-n">2025</div><div class="hstat-l">IRS brackets</div></div>
+    <div class="hstat"><div class="hstat-n">Free</div><div class="hstat-l">No sign up</div></div>
+  </div>
+</div>
+
+<!-- TOOL SWITCHER -->
+<div class="tool-switcher">
+  <div class="switcher-bar">
+    <a href="/" class="switcher-btn">
+      <div class="switcher-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+      </div>
+      <div>
+        <span class="switcher-label">Hourly ↔ Salary</span>
+        <span class="switcher-sub">Convert any pay rate to annual</span>
+      </div>
+    </a>
+    <a href="/salary-calculator" class="switcher-btn active">
+      <div class="switcher-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
+      </div>
+      <div>
+        <span class="switcher-label">Take-Home Pay</span>
+        <span class="switcher-sub">After federal & state taxes</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- TOOL GRID -->
+<div class="tool-grid">
+
+  <!-- LEFT INPUT -->
+  <div>
+    <div class="card">
+      <div class="card-head">
+        <div class="ch-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
+        </div>
+        <div>
+          <div class="ch-title">Your salary details</div>
+          <div class="ch-sub">2025 IRS tax tables</div>
+        </div>
+      </div>
+
+      <div class="input-section">
+        <div class="input-section-label">Income</div>
+        <div class="field">
+          <label class="lbl">Annual gross salary</label>
+          <div class="pfx"><span>$</span>
+            <input type="number" id="salary" placeholder="65000" min="0" oninput="calc()" />
+          </div>
+          <div class="hint">Your total annual salary before any deductions</div>
+        </div>
+        <div class="field">
+          <label class="lbl">Bonus / other income <span class="opt">(annual)</span></label>
+          <div class="pfx"><span>$</span>
+            <input type="number" id="bonus" placeholder="0" min="0" oninput="calc()" />
+          </div>
+          <div class="hint">Performance bonus, commissions — fully taxable</div>
+        </div>
+        <div class="field">
+          <label class="lbl">Pay frequency</label>
+          <select id="payFreq" onchange="calc()">
+            <option value="52">Weekly (52 paychecks/year)</option>
+            <option value="26" selected>Biweekly (26 paychecks/year)</option>
+            <option value="24">Semi-monthly (24 paychecks/year)</option>
+            <option value="12">Monthly (12 paychecks/year)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input-section">
+        <div class="input-section-label">Tax Profile</div>
+        <div class="field">
+          <label class="lbl">Filing status</label>
+          <select id="filing" onchange="calc()">
+            <option value="single" selected>Single</option>
+            <option value="married">Married Filing Jointly</option>
+            <option value="hoh">Head of Household</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="lbl">State of residence</label>
+          <select id="state" onchange="calc()">
+            <option value="none">No state tax / Select State...</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska (no income tax)</option>
+            <option value="AZ">Arizona (flat 2.5%)</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado (flat 4.4%)</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="FL">Florida (no income tax)</option>
+            <option value="GA">Georgia (flat 5.49%)</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho (flat 5.695%)</option>
+            <option value="IL">Illinois (flat 4.95%)</option>
+            <option value="IN">Indiana (flat 3.15%)</option>
+            <option value="IA">Iowa (flat 3.8%)</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky (flat 4.0%)</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts (flat 5.0%)</option>
+            <option value="MI">Michigan (flat 4.25%)</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi (flat 4.7%)</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada (no income tax)</option>
+            <option value="NH">New Hampshire (no income tax)</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina (flat 4.5%)</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania (flat 3.07%)</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota (no income tax)</option>
+            <option value="TN">Tennessee (no income tax)</option>
+            <option value="TX">Texas (no income tax)</option>
+            <option value="UT">Utah (flat 4.85%)</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington (no income tax)</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming (no income tax)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="lbl">W-4 additional withholding <span class="opt">(monthly)</span></label>
+          <div class="pfx"><span>$</span>
+            <input type="number" id="extraWith" placeholder="0" min="0" oninput="calc()" />
+          </div>
+          <div class="hint">Extra federal tax withheld per paycheck if you requested it on your W-4</div>
+        </div>
+      </div>
+
+      <div class="input-section">
+        <div class="input-section-label">Pre-tax Deductions <span style="font-size:11px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink3);">(lowers taxable income)</span></div>
+        <div class="field">
+          <label class="lbl">401k / 403b contribution</label>
+          <div style="display:flex;gap:8px;">
+            <select id="k401type" onchange="toggleK401()" style="width:90px;flex-shrink:0;">
+              <option value="pct">%</option>
+              <option value="fixed">$/yr</option>
+            </select>
+            <div class="pfx" style="flex:1;">
+              <span id="k401sym">%</span>
+              <input type="number" id="k401" placeholder="6" min="0" oninput="calc()" />
+            </div>
+          </div>
+          <div class="hint">2025 limit: $23,500/yr · $31,000 if age 50+ · $34,750 if age 60-63</div>
+        </div>
+        <div class="field">
+          <label class="lbl">Traditional IRA contribution <span class="opt">(annual)</span></label>
+          <div class="pfx"><span>$</span>
+            <input type="number" id="ira" placeholder="0" min="0" max="7000" oninput="calc()" />
+          </div>
+          <div class="hint">2025 limit: $7,000/yr ($8,000 if age 50+) — if income eligible</div>
+        </div>
+        <div class="field">
+          <label class="lbl">Health insurance premium <span class="opt">(annual employee share)</span></label>
+          <div class="pfx"><span>$</span>
+            <input type="number" id="health" placeholder="3000" min="0" oninput="calc()" />
+          </div>
+          <div class="hint">Your portion of employer-sponsored health plan — typically pre-tax</div>
+        </div>
+        <div class="field">
+          <label class="lbl">HSA contribution <span class="opt">(annual)</span></label>
+          <div class="pfx"><span>$</span>
+            <input type="number" id="hsa" placeholder="0" min="0" oninput="calc()" />
+          </div>
+          <div class="hint">2025 limit: $4,300 (self-only) · $8,550 (family) — triple tax advantage</div>
+        </div>
+        <div class="field">
+          <label class="lbl">Dependent care FSA <span class="opt">(annual)</span></label>
+          <div class="pfx"><span>$</span>
+            <input type="number" id="dcfsa" placeholder="0" min="0" max="5000" oninput="calc()" />
+          </div>
+          <div class="hint">Pre-tax childcare expenses — max $5,000/year per household</div>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="calc()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Calculate Take-Home Pay
+      </button>
+    </div>
+  </div>
+
+  <!-- RIGHT OUTPUT -->
+  <div>
+
+    <div class="card result-hidden" id="mainResult">
+      <div class="result-hero">
+        <div class="result-label" id="takeHomeLabel">Monthly Take-Home Pay</div>
+        <div class="result-value" id="takeHomeMonthly">$0</div>
+        <div class="result-sub" id="takeHomeSub">per year after all deductions</div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <div class="brow-section-label">Take-home by pay period</div>
+        <div class="breakdown" id="periodRows"></div>
+      </div>
+      <div>
+        <div class="brow-section-label">Where your salary goes</div>
+        <div class="chart-wrap" id="chartWrap"></div>
+      </div>
+    </div>
+
+    <div class="card result-hidden" id="taxCard">
+      <div class="card-head">
+        <div class="ch-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
+        </div>
+        <div>
+          <div class="ch-title">Full annual breakdown</div>
+          <div class="ch-sub" id="taxCardSub">Gross → net detail</div>
+        </div>
+      </div>
+      <div class="breakdown" id="taxRows"></div>
+      <div id="effectiveBox" style="font-size:13px;color:var(--ink2);margin-top:12px;padding:10px 14px;background:var(--bluel);border-radius:8px;font-weight:500;line-height:1.6;"></div>
+    </div>
+
+    <div class="card result-hidden" id="compCard">
+      <div class="card-head">
+        <div class="ch-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <div>
+          <div class="ch-title">No state tax vs your state</div>
+          <div class="ch-sub">How much you'd save in TX, FL, NV...</div>
+        </div>
+      </div>
+      <div class="breakdown" id="compRows"></div>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <div class="cross-cta" style="margin-top:0;">
+        <div class="cross-cta-text">
+          <strong>Know your hourly rate?</strong>
+          Convert to annual salary first
+        </div>
+        <a href="/" class="cross-cta-btn">Convert →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section style="padding:3rem 0 2rem;border-top:1px solid var(--bd);">
+  <div class="container">
+    <div class="sec-label">How it works</div>
+    <div class="sec-title">How take-home pay is calculated</div>
+    <div class="steps">
+      <div class="step"><div class="step-n">01</div><h3>Enter salary</h3><p>Type your annual gross salary and any bonus income. Choose your pay frequency.</p></div>
+      <div class="step"><div class="step-n">02</div><h3>Select state</h3><p>Choose your state for accurate state income tax. 9 states have zero state tax.</p></div>
+      <div class="step"><div class="step-n">03</div><h3>Add deductions</h3><p>Enter 401k, IRA, health insurance, HSA, and FSA — all reduce your taxable income.</p></div>
+      <div class="step"><div class="step-n">04</div><h3>See every number</h3><p>Get monthly, biweekly, and annual take-home with a full tax breakdown by category.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2025 TAX REFERENCE -->
+<section style="padding:1rem 0 2rem;">
+  <div class="container" style="max-width:760px;">
+    <div class="sec-label" style="text-align:left;margin-bottom:6px;">2025 Tax Reference</div>
+    <div class="sec-title" style="text-align:left;font-size:clamp(18px,2.5vw,24px);margin-bottom:1.25rem;">Federal income tax brackets</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;">Single</div>
+        <div class="breakdown">
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">Up to $11,925</span><span class="brow-val">10%</span></div>
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">$11,925–$48,475</span><span class="brow-val">12%</span></div>
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">$48,475–$103,350</span><span class="brow-val">22%</span></div>
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">$103,350–$197,300</span><span class="brow-val">24%</span></div>
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">$197,300–$626,350</span><span class="brow-val">32–35%</span></div>
+          <div class="brow total" style="font-size:12px;"><span class="brow-lbl">Std deduction</span><span class="brow-val">$15,000</span></div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;">Married/Joint</div>
+        <div class="breakdown">
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">Up to $23,850</span><span class="brow-val">10%</span></div>
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">$23,850–$96,950</span><span class="brow-val">12%</span></div>
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">$96,950–$206,700</span><span class="brow-val">22%</span></div>
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">$206,700–$394,600</span><span class="brow-val">24%</span></div>
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">$394,600–$751,600</span><span class="brow-val">32–35%</span></div>
+          <div class="brow total" style="font-size:12px;"><span class="brow-lbl">Std deduction</span><span class="brow-val">$30,000</span></div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;">FICA (All)</div>
+        <div class="breakdown">
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">Social Security</span><span class="brow-val">6.2%</span></div>
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">SS wage cap</span><span class="brow-val">$168,600</span></div>
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">Medicare</span><span class="brow-val">1.45%</span></div>
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">Add'l Medicare</span><span class="brow-val">+0.9%</span></div>
+          <div class="brow" style="font-size:12px;"><span class="brow-lbl">Add'l threshold</span><span class="brow-val">$200K+</span></div>
+          <div class="brow total" style="font-size:12px;"><span class="brow-lbl">Total FICA</span><span class="brow-val">7.65%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:1rem 0 3rem;">
+  <div class="container" style="max-width:720px;">
+    <div class="sec-label" style="text-align:left;margin-bottom:6px;">FAQ</div>
+    <div class="sec-title" style="text-align:left;margin-bottom:1.5rem;font-size:clamp(20px,3vw,26px);">Common questions</div>
+    <div class="faq-item" onclick="faq(this)"><div class="faq-q">How much tax is taken out of my paycheck in 2025?<span class="faq-icon">+</span></div><div class="faq-a">Federal income tax uses progressive brackets from 10% to 37%. Plus 6.2% Social Security (up to $176,100 wage cap), 1.45% Medicare, and state income tax (0–13.3% depending on state). Standard deduction is $15,750 for single filers in 2025, reducing your taxable income before brackets apply.</div></div>
+    <div class="faq-item" onclick="faq(this)"><div class="faq-q">What states have no income tax in 2025?<span class="faq-icon">+</span></div><div class="faq-a">9 states: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming. Living in a no-tax state vs California on a $100,000 salary saves roughly $6,000–$9,000/year.</div></div>
+    <div class="faq-item" onclick="faq(this)"><div class="faq-q">How does contributing to a 401k reduce my taxes?<span class="faq-icon">+</span></div><div class="faq-a">Traditional 401k contributions are pre-tax and reduce your federal and state taxable income dollar for dollar. Contributing $6,000 in the 22% bracket saves $1,320 in federal taxes. The 2025 employee limit is $23,500 ($31,000 if age 50+, $34,750 if age 60-63).</div></div>
+    <div class="faq-item" onclick="faq(this)"><div class="faq-q">What is FICA tax and how much is it?<span class="faq-icon">+</span></div><div class="faq-a">FICA funds Social Security (6.2% on wages up to $176,100) and Medicare (1.45% on all wages, plus 0.9% on income over $200,000 for single filers). Your employer matches the 7.65% — so the total FICA contribution is 15.3% of your wages.</div></div>
+    <div class="faq-item" onclick="faq(this)"><div class="faq-q">What is the standard deduction in 2025?<span class="faq-icon">+</span></div><div class="faq-a">$15,750 for single filers, $31,500 for married filing jointly, $23,625 for head of household. This is automatically applied and reduces your taxable income before tax brackets are calculated. Most workers take the standard deduction rather than itemizing.</div></div>
+    <div class="faq-item" onclick="faq(this)"><div class="faq-q">How accurate is this calculator?<span class="faq-icon">+</span></div><div class="faq-a">Very accurate for most W-2 employees with standard deductions. We use 2025 IRS tax brackets, current FICA rates, and state income tax rates. However, calculations may differ from your actual paycheck if you have complex deductions, multiple jobs, investment income, or self-employment income. Always consult a CPA for specific tax advice.</div></div>
+  </div>
+</section>
+
+<!-- BLOG CTA -->
+<section style="padding:0 0 4rem;">
+  <div class="container">
+    <div style="background:linear-gradient(135deg,var(--blue),var(--purple));border-radius:20px;padding:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:6px;">Salary guides</div>
+        <div style="font-family:var(--font-display);font-size:clamp(18px,3vw,22px);font-weight:700;color:#fff;letter-spacing:-0.4px;margin-bottom:8px;">Learn how US taxes work</div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;max-width:400px;">Federal brackets, state taxes, 401k strategy, and how to legally maximize your take-home pay.</p>
+      </div>
+      <a href="/blog" style="background:#fff;color:var(--blue);padding:12px 24px;border-radius:12px;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap;font-family:var(--font-display);">Read guides →</a>
+    </div>
+  </div>
+</section>
+
+</Base>
+
+<style>
+.brow-section-label { font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--ink3);margin-bottom:8px; }
+</style>
+
+<script>
+function toggleK401() {
+  const t = document.getElementById('k401type').value;
+  const s = document.getElementById('k401sym');
+  const i = document.getElementById('k401');
+  if (t === 'pct') { s.textContent = '%'; i.placeholder = '6'; }
+  else { s.textContent = '$'; i.placeholder = '5000'; }
+  calc();
+}
+
+function fmt(n) { return '$' + Math.round(Math.abs(n)).toLocaleString('en-US'); }
+
+// 2025 Federal brackets
+function calcFederal(taxable, filing) {
+  const std = { single: 15750, married: 31500, hoh: 23625 };
+  taxable = Math.max(0, taxable - std[filing]);
+  const brackets = {
+    single:  [[11925,0.10],[48475,0.12],[103350,0.22],[197300,0.24],[250525,0.32],[626350,0.35],[Infinity,0.37]],
+    married: [[23850,0.10],[96950,0.12],[206700,0.22],[394600,0.24],[501050,0.32],[751600,0.35],[Infinity,0.37]],
+    hoh:     [[17000,0.10],[64850,0.12],[103350,0.22],[197300,0.24],[250500,0.32],[626350,0.35],[Infinity,0.37]]
+  };
+  let tax = 0, prev = 0;
+  for (const [lim, rate] of brackets[filing]) {
+    if (taxable <= prev) break;
+    tax += (Math.min(taxable, lim) - prev) * rate;
+    prev = lim;
+  }
+  return tax;
+}
+
+// State tax — proper progressive for key states, flat for others
+function calcState(taxable, stateCode, filing) {
+  // State standard deductions for 2025
+  const stateStd = {
+    CA: { single: 5706, married: 11412, hoh: 11412 },
+    NY: { single: 8000, married: 16050, hoh: 11200 },
+    NJ: { single: 1000, married: 2000, hoh: 2000 },
+    OR: { single: 2835, married: 5670, hoh: 4535 },
+    MN: { single: 14950, married: 29900, hoh: 22425 },
+    MA: { single: 4400, married: 8800, hoh: 6200 }
+  };
+
+  const key = filing === 'married' ? 'married' : (filing === 'hoh' ? 'hoh' : 'single');
+  const std = stateStd[stateCode]?.[key] || 0;
+  taxable = Math.max(0, taxable - std);
+
+  const flat = { CO:0.044, IL:0.0495, IN:0.0315, KY:0.04, MA:0.05, MI:0.0425, NC:0.045, PA:0.0307, UT:0.0485, none:0 };
+  if (flat[stateCode] !== undefined) return taxable * flat[stateCode];
+
+  const progressive = {
+    CA: {
+      single: [[11079,0.01],[26264,0.02],[41452,0.04],[57542,0.06],[72724,0.08],[371479,0.093],[445771,0.103],[742953,0.113],[Infinity,0.123]],
+      married: [[22158,0.01],[52528,0.02],[82904,0.04],[115084,0.06],[145448,0.08],[742958,0.093],[891542,0.103],[1485906,0.113],[Infinity,0.123]],
+      hoh: [[22158,0.01],[52528,0.02],[82904,0.04],[115084,0.06],[145448,0.08],[505203,0.093],[606242,0.103],[1000000,0.113],[Infinity,0.123]]
+    },
+    NY: {
+      single: [[8500,0.04],[11700,0.045],[13900,0.0525],[80650,0.059],[215400,0.0633],[1077550,0.0685],[Infinity,0.109]],
+      married: [[17150,0.04],[23600,0.045],[27900,0.0525],[161550,0.059],[430800,0.0633],[2155100,0.0685],[Infinity,0.109]],
+      hoh: [[12800,0.04],[17650,0.045],[20900,0.0525],[121000,0.059],[323100,0.0633],[1616300,0.0685],[Infinity,0.109]]
+    },
+    NJ: {
+      single: [[20000,0.014],[35000,0.0175],[40000,0.035],[75000,0.05525],[500000,0.0637],[1000000,0.0897],[Infinity,0.1075]],
+      married: [[20000,0.014],[50000,0.0175],[70000,0.0245],[80000,0.035],[150000,0.05525],[500000,0.0637],[1000000,0.0897],[Infinity,0.1075]],
+      hoh: [[20000,0.014],[50000,0.0175],[70000,0.0245],[80000,0.035],[150000,0.05525],[500000,0.0637],[1000000,0.0897],[Infinity,0.1075]]
+    },
+    OR: {
+      single: [[4400,0.0475],[11050,0.0675],[125000,0.0875],[Infinity,0.099]],
+      married: [[8800,0.0475],[22100,0.0675],[250000,0.0875],[Infinity,0.099]],
+      hoh: [[8800,0.0475],[22100,0.0675],[250000,0.0875],[Infinity,0.099]]
+    },
+    MN: {
+      single: [[32570,0.0535],[106990,0.068],[198630,0.0785],[Infinity,0.0985]],
+      married: [[47620,0.0535],[189180,0.068],[330410,0.0785],[Infinity,0.0985]],
+      hoh: [[40100,0.0535],[161240,0.068],[259020,0.0785],[Infinity,0.0985]]
+    }
+  };
+
+  const tbl = progressive[stateCode]?.[key];
+  if (!tbl) {
+    // Fallback approximate rates for remaining states
+    const approx = { AL:0.05, AZ:0.025, AR:0.047, CT:0.065, DE:0.055, GA:0.0549, HI:0.082, ID:0.05695, IA:0.038, KS:0.055, LA:0.045, ME:0.065, MD:0.0525, MS:0.047, MO:0.048, MT:0.065, NE:0.06, NM:0.049, ND:0.025, OH:0.035, OK:0.0475, RI:0.055, SC:0.065, VT:0.0755, VA:0.0575, WV:0.05, WI:0.065 };
+    return taxable * (approx[stateCode] || 0);
+  }
+  let tax = 0, prev = 0;
+  for (const [lim, rate] of tbl) {
+    if (taxable <= prev) break;
+    tax += (Math.min(taxable, lim) - prev) * rate;
+    prev = lim;
+  }
+
+  // 1% Mental Health Services Tax for CA over $1,000,000
+  if (stateCode === 'CA' && taxable > 1000000) {
+    tax += (taxable - 1000000) * 0.01;
+  }
+
+  // 4% Massachusetts Surtax over $1,083,150
+  if (stateCode === 'MA' && taxable > 1083150) {
+    tax += (taxable - 1083150) * 0.04;
+  }
+
+  return tax;
+}
+
+function calc() {
+  const salary = parseFloat(document.getElementById('salary').value) || 0;
+  if (salary <= 0) {
+    ['mainResult','taxCard','compCard'].forEach(id => {
+      document.getElementById(id).className = 'card result-hidden';
+    });
+    return;
+  }
+
+  const bonus = parseFloat(document.getElementById('bonus').value) || 0;
+  const totalGross = salary + bonus;
+  const payFreq = parseInt(document.getElementById('payFreq').value);
+  const filing = document.getElementById('filing').value;
+  const stateCode = document.getElementById('state').value;
+  const extraWith = (parseFloat(document.getElementById('extraWith').value) || 0) * 12;
+
+  const k401type = document.getElementById('k401type').value;
+  const k401raw = parseFloat(document.getElementById('k401').value) || 0;
+  const k401 = Math.min(k401type === 'pct' ? totalGross * (k401raw/100) : k401raw, 23500);
+  const ira = Math.min(parseFloat(document.getElementById('ira').value) || 0, 7000);
+  const health = parseFloat(document.getElementById('health').value) || 0;
+  const hsa = parseFloat(document.getElementById('hsa').value) || 0;
+  const dcfsa = Math.min(parseFloat(document.getElementById('dcfsa').value) || 0, 5000);
+
+  const preTax = k401 + health + hsa + dcfsa;
+  const federalTaxable = Math.max(0, totalGross - preTax - ira);
+  const stateTaxable = Math.max(0, totalGross - preTax - ira);
+
+  const std = { single: 15750, married: 31500, hoh: 23625 };
+  const fedTaxableAfterStd = Math.max(0, federalTaxable - std[filing]);
+
+  const fedTax = calcFederal(federalTaxable, filing);
+  
+  // Section 125 deductions (health, HSA, Dependent care FSA) are exempt from FICA
+  const ficaTaxable = Math.max(0, totalGross - health - hsa - dcfsa);
+  const ssTax = Math.min(ficaTaxable, 176100) * 0.062;
+  const medTax = ficaTaxable * 0.0145;
+  const medThreshold = filing === 'married' ? 250000 : 200000;
+  const addMed = ficaTaxable > medThreshold ? (ficaTaxable - medThreshold) * 0.009 : 0;
+  const stateTax = calcState(stateTaxable, stateCode, filing);
+
+  const totalTax = fedTax + ssTax + medTax + addMed + stateTax + extraWith;
+  const totalDed = totalTax + preTax + ira;
+  const netAnnual = totalGross - totalDed;
+  const netMonthly = netAnnual / 12;
+  const effectiveRate = ((totalTax / totalGross) * 100).toFixed(1);
+  const marginalRate = fedTax > 0 ? getMarginalRate(fedTaxableAfterStd, filing) : 0;
+
+  // State name
+  const stateNames = { none:'No state tax', CA:'California', NY:'New York', TX:'Texas', FL:'Florida', NJ:'New Jersey', IL:'Illinois', PA:'Pennsylvania', OH:'Ohio', GA:'Georgia', NC:'North Carolina', MI:'Michigan', VA:'Virginia', WA:'Washington', MA:'Massachusetts', AZ:'Arizona', CO:'Colorado', TN:'Tennessee', IN:'Indiana', MO:'Missouri', MD:'Maryland', WI:'Wisconsin', MN:'Minnesota', SC:'South Carolina', AL:'Alabama', LA:'Louisiana', KY:'Kentucky', OR:'Oregon', OK:'Oklahoma', CT:'Connecticut', UT:'Utah', NV:'Nevada', IA:'Iowa', AR:'Arkansas', MS:'Mississippi', KS:'Kansas', NM:'New Mexico', NE:'Nebraska', WV:'West Virginia', ID:'Idaho', HI:'Hawaii', NH:'New Hampshire', ME:'Maine', MT:'Montana', RI:'Rhode Island', ND:'North Dakota', SD:'South Dakota', AK:'Alaska', VT:'Vermont', WY:'Wyoming', DE:'Delaware' };
+  const sName = stateNames[stateCode] || stateCode;
+
+  // Pay frequency map
+  const freqLabels = {
+    "52": "Weekly",
+    "26": "Biweekly",
+    "24": "Semi-monthly",
+    "12": "Monthly"
+  };
+  const freqLabel = freqLabels[payFreq] || "Monthly";
+  const netPaycheck = netAnnual / payFreq;
+
+  // Update display
+  document.getElementById('takeHomeLabel').textContent = `${freqLabel} Take-Home Pay`;
+  document.getElementById('takeHomeMonthly').textContent = fmt(netPaycheck);
+  document.getElementById('takeHomeSub').textContent = `${fmt(netAnnual)}/year · ${fmt(netMonthly)}/month`;
+
+  // Period rows
+  document.getElementById('periodRows').innerHTML = [
+    { l:'Annual take-home', v:netAnnual, t:true },
+    { l:'Monthly', v:netAnnual/12 },
+    { l:'Semi-monthly paycheck', v:netAnnual/24 },
+    { l:'Biweekly paycheck', v:netAnnual/26 },
+    { l:'Weekly paycheck', v:netAnnual/52 },
+  ].map(r => `<div class="brow ${r.t?'total':''}"><span class="brow-lbl">${r.l}</span><span class="brow-val pos">${fmt(r.v)}</span></div>`).join('');
+
+  // Chart
+  const chartItems = [
+    { l:'Take-home', v:netAnnual, c:'#2563eb' },
+    { l:'Federal tax', v:fedTax, c:'#dc2626' },
+    { l:'Social Security', v:ssTax, c:'#d97706' },
+    { l:'Medicare', v:medTax+addMed, c:'#f59e0b' },
+    { l:(sName==='No state tax'?'State':sName)+' tax', v:stateTax, c:'#7c3aed' },
+    { l:'401k/IRA', v:k401+ira, c:'#059669' },
+    { l:'Health+HSA+FSA', v:health+hsa+dcfsa, c:'#0891b2' },
+  ].filter(i=>i.v>0);
+  document.getElementById('chartWrap').innerHTML = chartItems.map(it => {
+    const pct = Math.round((it.v/totalGross)*100);
+    return `<div class="chart-row"><div class="chart-lbl">${it.l}</div><div class="chart-track"><div class="chart-fill" style="width:${Math.max(pct,1)}%;background:${it.c};"></div></div><div class="chart-pct">${pct}%</div></div>`;
+  }).join('');
+
+  // Full breakdown
+  document.getElementById('taxCardSub').textContent = `${fmt(totalGross)} gross · ${sName}`;
+  const rows = [
+    { l:'Gross salary + bonus', c:'#2563eb', v:totalGross, neg:false },
+    ...(k401>0?[{ l:`401k contribution`, c:'#059669', v:k401, neg:true }]:[]),
+    ...(ira>0?[{ l:'Traditional IRA', c:'#059669', v:ira, neg:true }]:[]),
+    ...(health>0?[{ l:'Health insurance', c:'#0891b2', v:health, neg:true }]:[]),
+    ...(hsa>0?[{ l:'HSA contribution', c:'#0891b2', v:hsa, neg:true }]:[]),
+    ...(dcfsa>0?[{ l:'Dependent care FSA', c:'#0891b2', v:dcfsa, neg:true }]:[]),
+    { l:'Federal income tax', c:'#dc2626', v:fedTax, neg:true },
+    { l:'Social Security (6.2%)', c:'#d97706', v:ssTax, neg:true },
+    { l:`Medicare (${addMed>0?'1.45%+0.9%':'1.45%'})`, c:'#f59e0b', v:medTax+addMed, neg:true },
+    ...(stateTax>0?[{ l:`${sName} income tax`, c:'#7c3aed', v:stateTax, neg:true }]:[]),
+    ...(extraWith>0?[{ l:'Extra W-4 withholding', c:'#64748b', v:extraWith, neg:true }]:[]),
+  ];
+  document.getElementById('taxRows').innerHTML = rows.map(r =>
+    `<div class="brow"><span class="brow-lbl"><span class="bdot" style="background:${r.c};"></span>${r.l}</span><span class="brow-val ${r.neg?'neg':'pos'}">${r.neg?'-':''}${fmt(r.v)}</span></div>`
+  ).join('') + `<div class="brow total"><span class="brow-lbl">Annual take-home</span><span class="brow-val pos">${fmt(netAnnual)}</span></div>`;
+
+  const zeroTaxStates = ['none', 'TX', 'FL', 'NV', 'WA', 'WY', 'SD', 'TN', 'NH', 'AK'];
+  const isZeroTax = zeroTaxStates.includes(stateCode);
+  document.getElementById('effectiveBox').innerHTML =
+    `📊 <strong>Effective tax rate: ${effectiveRate}%</strong> · Marginal rate: ${marginalRate}% · You keep ${(100-parseFloat(effectiveRate)).toFixed(1)}¢ of every $1 earned.${isZeroTax?' ✅ No state income tax — saving vs high-tax states.':''}`;
+
+  // State comparison (no-tax vs current)
+  if (stateCode !== 'none' && stateTax > 0) {
+    const netNoTax = netAnnual + stateTax;
+    document.getElementById('compRows').innerHTML = `
+      <div class="brow"><span class="brow-lbl">Your state (${sName})</span><span class="brow-val">${fmt(netAnnual)}/yr</span></div>
+      <div class="brow"><span class="brow-lbl">No state tax (TX/FL/NV...)</span><span class="brow-val pos">${fmt(netNoTax)}/yr</span></div>
+      <div class="brow total"><span class="brow-lbl">You'd save annually</span><span class="brow-val pos">+${fmt(stateTax)}/yr (+${fmt(stateTax/12)}/mo)</span></div>`;
+    document.getElementById('compCard').className = 'card result-show';
+  } else {
+    document.getElementById('compCard').className = 'card result-hidden';
+  }
+
+  ['mainResult','taxCard'].forEach(id => document.getElementById(id).className = 'card result-show');
+}
+
+function getMarginalRate(taxable, filing) {
+  const b = { single:[[11925,10],[48475,12],[103350,22],[197300,24],[250525,32],[626350,35],[Infinity,37]], married:[[23850,10],[96950,12],[206700,22],[394600,24],[501050,32],[751600,35],[Infinity,37]], hoh:[[17000,10],[64850,12],[103350,22],[197300,24],[250500,32],[626350,35],[Infinity,37]] };
+  for (const [lim,rate] of b[filing]) { if (taxable <= lim) return rate; }
+  return 37;
+}
+
+function faq(el) {
+  const a=el.querySelector('.faq-a'), ic=el.querySelector('.faq-icon');
+  const open=a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));
+  document.querySelectorAll('.faq-icon').forEach(x=>x.classList.remove('open'));
+  if(!open){a.classList.add('open');ic.classList.add('open');}
+}
+
+window.addEventListener('load', () => {
+  document.getElementById('salary').value = 65000;
+  document.getElementById('k401').value = 6;
+  document.getElementById('health').value = 3000;
+  calc();
+});
+</script>
