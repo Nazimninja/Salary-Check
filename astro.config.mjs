@@ -1,8 +1,11 @@
 import { defineConfig } from 'astro/config';
 
+import cloudflare from "@astrojs/cloudflare";
+
 export default defineConfig({
   site: 'https://salarytools.us',
-  output: 'static',
+  output: "hybrid",
   compressHTML: true,
-  build: { assets: 'assets' }
+  build: { assets: 'assets' },
+  adapter: cloudflare()
 });
