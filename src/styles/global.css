@@ -147,8 +147,8 @@ footer { background: var(--ink); padding: 2.5rem 1.5rem; }
 .opt { font-weight: 400; text-transform: none; color: var(--ink3); font-size: 11px; letter-spacing: 0; }
 .input-row { display: flex; gap: 8px; }
 .pfx { position: relative; }
-.pfx span { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--ink3); font-weight: 500; pointer-events: none; z-index: 1; }
-.pfx input { padding-left: 26px; }
+.pfx span { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--ink3); font-weight: 500; pointer-events: none; z-index: 1; }
+.pfx input { padding-left: 30px !important; }
 select, input[type=number], input[type=text] {
   width: 100%; padding: 10px 13px;
   border: 1.5px solid var(--bd2); border-radius: 10px;
