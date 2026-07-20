@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://salarytools.us/sitemap.xml
+Sitemap: https://salary.socialninjas.in/sitemap.xml
