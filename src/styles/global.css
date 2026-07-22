@@ -4,10 +4,10 @@
   --font-body:    'SF Pro Text',    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   --font-mono:    'SF Mono', ui-monospace, 'Cascadia Code', monospace;
 
-  --blue:    #2563eb;
-  --bluem:   #1d4ed8;
-  --bluel:   #eff6ff;
-  --bluell:  #f5f8ff;
+  --blue:    #1F4B99;
+  --bluem:   #153880;
+  --bluel:   rgba(31, 75, 153, 0.08);
+  --bluell:  #f0f4ff;
   --green:   #16a34a;
   --greenl:  #f0fdf4;
   --purple:  #7c3aed;

@@ -80,7 +80,7 @@ import Base from '../layouts/Base.astro';
     <div class="card">
       <div class="card-head">
         <div class="ch-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1F4B99" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
         </div>
         <div>
           <div class="ch-title">Your pay rate</div>
@@ -206,7 +206,7 @@ import Base from '../layouts/Base.astro';
     <div class="card result-hidden" id="equivCard">
       <div class="card-head">
         <div class="ch-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1F4B99" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
         <div>
           <div class="ch-title">Equivalent rates</div>
@@ -229,7 +229,7 @@ import Base from '../layouts/Base.astro';
     <div class="card result-hidden" id="refCard">
       <div class="card-head">
         <div class="ch-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1F4B99" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
         </div>
         <div>
           <div class="ch-title">Common hourly → annual</div>
@@ -377,7 +377,7 @@ function calc() {
 
   // Pay periods
   const periods = [
-    { label: 'Annual', val: annual, color: '#2563eb' },
+    { label: 'Annual', val: annual, color: '#1F4B99' },
     { label: 'Monthly (÷12)', val: monthly, color: '#7c3aed' },
     { label: 'Semi-monthly (÷24)', val: semiMonthly, color: '#0891b2' },
     { label: 'Biweekly (÷26)', val: biWeekly, color: '#059669' },
@@ -403,7 +403,7 @@ function calc() {
   const workedAnnual = Math.max(0, regularAnnual - ptoAnnual);
 
   const chartItems = [
-    { label: 'Worked pay', val: workedAnnual, color: '#2563eb' },
+    { label: 'Worked pay', val: workedAnnual, color: '#1F4B99' },
     ...(ptoAnnual > 0 ? [{ label: 'Paid time off (PTO)', val: ptoAnnual, color: '#059669' }] : []),
     ...(otAnnual > 0 ? [{ label: 'Overtime pay', val: otAnnual, color: '#7c3aed' }] : []),
   ];
