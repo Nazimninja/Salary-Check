@@ -1,0 +1,195 @@
+---
+import Base from '../../layouts/Base.astro';
+
+export function getStaticPaths() {
+  const rates = [
+    { hourly: 15, slug: '15-an-hour-is-how-much-a-year' },
+    { hourly: 16, slug: '16-an-hour-is-how-much-a-year' },
+    { hourly: 17, slug: '17-an-hour-is-how-much-a-year' },
+    { hourly: 18, slug: '18-an-hour-is-how-much-a-year' },
+    { hourly: 19, slug: '19-an-hour-is-how-much-a-year' },
+    { hourly: 20, slug: '20-an-hour-is-how-much-a-year' },
+    { hourly: 21, slug: '21-an-hour-is-how-much-a-year' },
+    { hourly: 22, slug: '22-an-hour-is-how-much-a-year' },
+    { hourly: 23, slug: '23-an-hour-is-how-much-a-year' },
+    { hourly: 24, slug: '24-an-hour-is-how-much-a-year' },
+    { hourly: 25, slug: '25-an-hour-is-how-much-a-year' },
+    { hourly: 26, slug: '26-an-hour-is-how-much-a-year' },
+    { hourly: 27, slug: '27-an-hour-is-how-much-a-year' },
+    { hourly: 28, slug: '28-an-hour-is-how-much-a-year' },
+    { hourly: 29, slug: '29-an-hour-is-how-much-a-year' },
+    { hourly: 30, slug: '30-an-hour-is-how-much-a-year' },
+    { hourly: 32, slug: '32-an-hour-is-how-much-a-year' },
+    { hourly: 35, slug: '35-an-hour-is-how-much-a-year' },
+    { hourly: 38, slug: '38-an-hour-is-how-much-a-year' },
+    { hourly: 40, slug: '40-an-hour-is-how-much-a-year' },
+    { hourly: 45, slug: '45-an-hour-is-how-much-a-year' },
+    { hourly: 50, slug: '50-an-hour-is-how-much-a-year' },
+    { hourly: 55, slug: '55-an-hour-is-how-much-a-year' },
+    { hourly: 60, slug: '60-an-hour-is-how-much-a-year' },
+    { hourly: 65, slug: '65-an-hour-is-how-much-a-year' },
+    { hourly: 70, slug: '70-an-hour-is-how-much-a-year' },
+    { hourly: 75, slug: '75-an-hour-is-how-much-a-year' },
+    { hourly: 80, slug: '80-an-hour-is-how-much-a-year' },
+    { hourly: 90, slug: '90-an-hour-is-how-much-a-year' },
+    { hourly: 100, slug: '100-an-hour-is-how-much-a-year' },
+  ];
+
+  return rates.map(r => {
+    const annual = r.hourly * 40 * 52;
+    const monthly = Math.round(annual / 12);
+    const biweekly = Math.round(annual / 26);
+    const weekly = r.hourly * 40;
+    const daily = r.hourly * 8;
+    const estTax = Math.round(annual * 0.18);
+    const netAnnual = annual - estTax;
+    const netMonthly = Math.round(netAnnual / 12);
+    const netBiweekly = Math.round(netAnnual / 26);
+
+    return {
+      params: { slug: r.slug },
+      props: { hourly: r.hourly, annual, monthly, biweekly, weekly, daily, estTax, netAnnual, netMonthly, netBiweekly }
+    };
+  });
+}
+
+const { hourly, annual, monthly, biweekly, weekly, daily, estTax, netAnnual, netMonthly, netBiweekly } = Astro.props;
+const title = `$${hourly} an Hour is How Much a Year? (2025 Paycheck Breakdown)`;
+const description = `$${hourly} an hour is $${annual.toLocaleString()} a year before taxes ($${netAnnual.toLocaleString()} net). See full breakdown: monthly ($${monthly.toLocaleString()}), biweekly ($${biweekly.toLocaleString()}), and weekly pay.`;
+---
+
+<Base title={title} description={description} canonical={`https://salary.socialninjas.in/hourly/${Astro.params.slug}`}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": `$${hourly}/hr Salary Breakdown 2025`,
+    "operatingSystem": "Web",
+    "applicationCategory": "FinanceApplication",
+    "description": description,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  })} />
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": `$${hourly} an hour is how much a year?`,
+        "acceptedAnswer": { "@type": "Answer", "text": `$${hourly} an hour working 40 hours per week is $${annual.toLocaleString()} per year before taxes. After estimated federal taxes (~18%), take-home pay is approximately $${netAnnual.toLocaleString()} per year.` }
+      },
+      {
+        "@type": "Question",
+        "name": `$${hourly} an hour is how much a month?`,
+        "acceptedAnswer": { "@type": "Answer", "text": `Before taxes, $${hourly} an hour is $${monthly.toLocaleString()} per month. After taxes, net monthly income is around $${netMonthly.toLocaleString()}.` }
+      },
+      {
+        "@type": "Question",
+        "name": `$${hourly} an hour is how much a biweekly paycheck?`,
+        "acceptedAnswer": { "@type": "Answer", "text": `Working 80 hours per biweekly pay period at $${hourly}/hr yields a gross check of $${biweekly.toLocaleString()} ($${netBiweekly.toLocaleString()} after tax).` }
+      }
+    ]
+  })} />
+
+  <div class="container" style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <span style="display:inline-block; padding: 4px 14px; background: rgba(31,75,153,0.08); color: #1F4B99; border-radius: 20px; font-weight: 600; font-size: 13px; margin-bottom: 12px;">
+        2025 Hourly Wage Breakdown
+      </span>
+      <h1 style="font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; color: #141414; line-height: 1.15; margin-bottom: 12px;">
+        ${hourly} an Hour is How Much a Year?
+      </h1>
+      <p style="font-size: 16px; color: #64748b; max-width: 620px; margin: 0 auto;">
+        Working a standard 40-hour work week (2,080 hours/year), a wage of <strong>${hourly.toLocaleString()} per hour</strong> equals <strong>${annual.toLocaleString()}</strong> per year.
+      </p>
+    </div>
+
+    <!-- MAIN SUMMARY CARD -->
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); margin-bottom: 32px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center;">
+        <div style="padding: 16px; background: #f8fafc; border-radius: 14px;">
+          <div style="font-size: 13px; color: #64748b; font-weight: 600; margin-bottom: 4px;">Annual Gross</div>
+          <div style="font-size: 26px; font-weight: 800; color: #1F4B99;">${annual.toLocaleString()}</div>
+        </div>
+        <div style="padding: 16px; background: #f8fafc; border-radius: 14px;">
+          <div style="font-size: 13px; color: #64748b; font-weight: 600; margin-bottom: 4px;">Estimated Net Annual</div>
+          <div style="font-size: 26px; font-weight: 800; color: #16a34a;">${netAnnual.toLocaleString()}</div>
+        </div>
+        <div style="padding: 16px; background: #f8fafc; border-radius: 14px;">
+          <div style="font-size: 13px; color: #64748b; font-weight: 600; margin-bottom: 4px;">Biweekly Gross (80 hrs)</div>
+          <div style="font-size: 26px; font-weight: 800; color: #0f172a;">${biweekly.toLocaleString()}</div>
+        </div>
+        <div style="padding: 16px; background: #f8fafc; border-radius: 14px;">
+          <div style="font-size: 13px; color: #64748b; font-weight: 600; margin-bottom: 4px;">Monthly Net</div>
+          <div style="font-size: 26px; font-weight: 800; color: #16a34a;">${netMonthly.toLocaleString()}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAILED BREAKDOWN TABLE -->
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 28px; margin-bottom: 32px;">
+      <h2 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 20px;">
+        Detailed Paycheck Breakdown for ${hourly}/Hour
+      </h2>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 15px;">
+          <thead>
+            <tr style="border-bottom: 2px solid #e2e8f0; color: #64748b;">
+              <th style="padding: 12px;">Time Period</th>
+              <th style="padding: 12px;">Gross Pay</th>
+              <th style="padding: 12px;">Est. Tax (~18%)</th>
+              <th style="padding: 12px;">Net Take-Home Pay</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #f1f5f9;">
+              <td style="padding: 14px; font-weight: 600;">Hourly</td>
+              <td style="padding: 14px; font-weight: 700;">${hourly.toFixed(2)}</td>
+              <td style="padding: 14px; color: #dc2626;">${(hourly * 0.18).toFixed(2)}</td>
+              <td style="padding: 14px; font-weight: 700; color: #16a34a;">${(hourly * 0.82).toFixed(2)}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #f1f5f9;">
+              <td style="padding: 14px; font-weight: 600;">Daily (8 hrs)</td>
+              <td style="padding: 14px; font-weight: 700;">${daily.toLocaleString()}</td>
+              <td style="padding: 14px; color: #dc2626;">${Math.round(daily * 0.18).toLocaleString()}</td>
+              <td style="padding: 14px; font-weight: 700; color: #16a34a;">${Math.round(daily * 0.82).toLocaleString()}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #f1f5f9;">
+              <td style="padding: 14px; font-weight: 600;">Weekly (40 hrs)</td>
+              <td style="padding: 14px; font-weight: 700;">${weekly.toLocaleString()}</td>
+              <td style="padding: 14px; color: #dc2626;">${Math.round(weekly * 0.18).toLocaleString()}</td>
+              <td style="padding: 14px; font-weight: 700; color: #16a34a;">${Math.round(weekly * 0.82).toLocaleString()}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #f1f5f9;">
+              <td style="padding: 14px; font-weight: 600;">Biweekly (80 hrs)</td>
+              <td style="padding: 14px; font-weight: 700;">${biweekly.toLocaleString()}</td>
+              <td style="padding: 14px; color: #dc2626;">${Math.round(biweekly * 0.18).toLocaleString()}</td>
+              <td style="padding: 14px; font-weight: 700; color: #16a34a;">${netBiweekly.toLocaleString()}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #f1f5f9;">
+              <td style="padding: 14px; font-weight: 600;">Monthly (1/12 yr)</td>
+              <td style="padding: 14px; font-weight: 700;">${monthly.toLocaleString()}</td>
+              <td style="padding: 14px; color: #dc2626;">${Math.round(monthly * 0.18).toLocaleString()}</td>
+              <td style="padding: 14px; font-weight: 700; color: #16a34a;">${netMonthly.toLocaleString()}</td>
+            </tr>
+            <tr>
+              <td style="padding: 14px; font-weight: 700; color: #1F4B99;">Annual (2,080 hrs)</td>
+              <td style="padding: 14px; font-weight: 800; color: #1F4B99;">${annual.toLocaleString()}</td>
+              <td style="padding: 14px; color: #dc2626; font-weight: 700;">${estTax.toLocaleString()}</td>
+              <td style="padding: 14px; font-weight: 800; color: #16a34a;">${netAnnual.toLocaleString()}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CTA TO CUSTOM CALCULATOR -->
+    <div style="text-align: center; background: linear-gradient(135deg, #1F4B99, #153880); padding: 32px; border-radius: 20px; color: #ffffff;">
+      <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">Want state-specific tax calculations?</h3>
+      <p style="font-size: 15px; opacity: 0.9; max-width: 500px; margin: 0 auto 20px;">Use our free 50-state tax calculator to factor in 401k deductions, health insurance, and exact state withholding.</p>
+      <a href="/salary-calculator" style="display: inline-block; background: #ffffff; color: #1F4B99; padding: 12px 28px; border-radius: 12px; font-weight: 700; text-decoration: none;">
+        Open Full Paycheck Calculator →
+      </a>
+    </div>
+  </div>
+</Base>
