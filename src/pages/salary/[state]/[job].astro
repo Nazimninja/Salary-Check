@@ -1,0 +1,163 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+export function getStaticPaths() {
+  const states = [
+    { name: 'California', code: 'ca', taxRate: 0.08 },
+    { name: 'Texas', code: 'tx', taxRate: 0.00 },
+    { name: 'New York', code: 'ny', taxRate: 0.065 },
+    { name: 'Florida', code: 'fl', taxRate: 0.00 },
+    { name: 'Washington', code: 'wa', taxRate: 0.00 },
+    { name: 'Illinois', code: 'il', taxRate: 0.0495 },
+  ];
+
+  const jobs = [
+    { title: 'Software Engineer', slug: 'software-engineer', avgBase: 125000 },
+    { title: 'Registered Nurse', slug: 'registered-nurse', avgBase: 88000 },
+    { title: 'Project Manager', slug: 'project-manager', avgBase: 95000 },
+    { title: 'Data Analyst', slug: 'data-analyst', avgBase: 82000 },
+    { title: 'Accountant', slug: 'accountant', avgBase: 76000 },
+    { title: 'Marketing Manager', slug: 'marketing-manager', avgBase: 105000 },
+    { title: 'Product Manager', slug: 'product-manager', avgBase: 135000 },
+    { title: 'Graphic Designer', slug: 'graphic-designer', avgBase: 65000 },
+  ];
+
+  const paths = [];
+
+  for (const st of states) {
+    for (const j of jobs) {
+      const gross = j.avgBase;
+      const fedTax = Math.round(gross * 0.16);
+      const stateTax = Math.round(gross * st.taxRate);
+      const fica = Math.round(gross * 0.0765);
+      const net = gross - fedTax - stateTax - fica;
+      const monthlyNet = Math.round(net / 12);
+      const biweeklyNet = Math.round(net / 26);
+
+      paths.push({
+        params: { state: st.code, job: j.slug },
+        props: {
+          stateName: st.name,
+          jobTitle: j.title,
+          gross,
+          fedTax,
+          stateTax,
+          fica,
+          net,
+          monthlyNet,
+          biweeklyNet
+        }
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { stateName, jobTitle, gross, fedTax, stateTax, fica, net, monthlyNet, biweeklyNet } = Astro.props;
+const pageTitle = `${jobTitle} Salary in ${stateName} 2025 (Take-Home Pay Calculator)`;
+const pageDesc = `Average ${jobTitle} salary in ${stateName} is $${gross.toLocaleString()}/yr. Take-home pay after taxes is $${net.toLocaleString()}/yr ($${monthlyNet.toLocaleString()}/mo, $${biweeklyNet.toLocaleString()} biweekly).`;
+---
+
+<Base title={pageTitle} description={pageDesc} canonical={`https://salary.socialninjas.in/salary/${Astro.params.state}/${Astro.params.job}`}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": `${jobTitle} Salary in ${stateName}`,
+    "operatingSystem": "Web",
+    "applicationCategory": "FinanceApplication",
+    "description": pageDesc,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  })} />
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": `What is the average ${jobTitle} salary in ${stateName}?`,
+        "acceptedAnswer": { "@type": "Answer", "text": `The average base salary for a ${jobTitle} in ${stateName} is approximately $${gross.toLocaleString()} per year before taxes.` }
+      },
+      {
+        "@type": "Question",
+        "name": `What is the take-home pay for a ${jobTitle} in ${stateName}?`,
+        "acceptedAnswer": { "@type": "Answer", "text": `After federal taxes ($${fedTax.toLocaleString()}), ${stateName} state taxes ($${stateTax.toLocaleString()}), and FICA ($${fica.toLocaleString()}), estimated net take-home pay is $${net.toLocaleString()} per year ($${monthlyNet.toLocaleString()} per month).` }
+      }
+    ]
+  })} />
+
+  <div class="container" style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <span style="display:inline-block; padding: 4px 14px; background: rgba(31,75,153,0.08); color: #1F4B99; border-radius: 20px; font-weight: 600; font-size: 13px; margin-bottom: 12px;">
+        {stateName} Salary Insights · 2025
+      </span>
+      <h1 style="font-size: clamp(26px, 4vw, 40px); font-weight: 800; color: #141414; line-height: 1.15; margin-bottom: 12px;">
+        {jobTitle} Salary in {stateName}
+      </h1>
+      <p style="font-size: 16px; color: #64748b; max-width: 620px; margin: 0 auto;">
+        Average gross salary for a {jobTitle} in {stateName} is <strong>${gross.toLocaleString()}</strong> per year. See exact take-home pay after federal and state taxes.
+      </p>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); margin-bottom: 32px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center;">
+        <div style="padding: 16px; background: #f8fafc; border-radius: 14px;">
+          <div style="font-size: 13px; color: #64748b; font-weight: 600; margin-bottom: 4px;">Gross Salary</div>
+          <div style="font-size: 26px; font-weight: 800; color: #1F4B99;">${gross.toLocaleString()}</div>
+        </div>
+        <div style="padding: 16px; background: #f8fafc; border-radius: 14px;">
+          <div style="font-size: 13px; color: #64748b; font-weight: 600; margin-bottom: 4px;">Net Take-Home</div>
+          <div style="font-size: 26px; font-weight: 800; color: #16a34a;">${net.toLocaleString()}</div>
+        </div>
+        <div style="padding: 16px; background: #f8fafc; border-radius: 14px;">
+          <div style="font-size: 13px; color: #64748b; font-weight: 600; margin-bottom: 4px;">Monthly Net</div>
+          <div style="font-size: 26px; font-weight: 800; color: #0f172a;">${monthlyNet.toLocaleString()}</div>
+        </div>
+        <div style="padding: 16px; background: #f8fafc; border-radius: 14px;">
+          <div style="font-size: 13px; color: #64748b; font-weight: 600; margin-bottom: 4px;">Biweekly Net</div>
+          <div style="font-size: 26px; font-weight: 800; color: #16a34a;">${biweeklyNet.toLocaleString()}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAX DEDUCTION BREAKDOWN -->
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 28px; margin-bottom: 32px;">
+      <h2 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 20px;">
+        {stateName} Tax Deductions Breakdown
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 14px; font-size: 15px;">
+        <div style="display: flex; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid #f1f5f9;">
+          <span>Gross Annual Salary</span>
+          <span style="font-weight: 700;">${gross.toLocaleString()}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid #f1f5f9;">
+          <span>Federal Income Tax</span>
+          <span style="color: #dc2626; font-weight: 600;">-${fedTax.toLocaleString()}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid #f1f5f9;">
+          <span>{stateName} State Tax</span>
+          <span style="color: #dc2626; font-weight: 600;">-${stateTax.toLocaleString()}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid #f1f5f9;">
+          <span>FICA (Social Security & Medicare)</span>
+          <span style="color: #dc2626; font-weight: 600;">-${fica.toLocaleString()}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 17px; font-weight: 800;">
+          <span style="color: #1F4B99;">Total Take-Home Pay</span>
+          <span style="color: #16a34a;">${net.toLocaleString()}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align: center; background: linear-gradient(135deg, #1F4B99, #153880); padding: 32px; border-radius: 20px; color: #ffffff;">
+      <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">Calculate your exact paycheck with deductions</h3>
+      <p style="font-size: 15px; opacity: 0.9; max-width: 500px; margin: 0 auto 20px;">Customize filing status, 401k, health insurance, and HSA contributions.</p>
+      <a href="/salary-calculator" style="display: inline-block; background: #ffffff; color: #1F4B99; padding: 12px 28px; border-radius: 12px; font-weight: 700; text-decoration: none;">
+        Open Salary Calculator →
+      </a>
+    </div>
+  </div>
+</Base>
