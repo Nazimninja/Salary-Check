@@ -266,39 +266,53 @@ const ogImage = 'https://salary.socialninjas.in/og-image.png';
 </div>
 
 <footer>
-  <div class="ft-inner">
+  <div class="ft-inner" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: left; align-items: start;">
     <div>
-      <div class="ft-logo">Salary<em>Tools</em></div>
-      <div class="ft-tagline">Free salary calculators for US workers · 2025</div>
-      <!-- PRODUCT HUNT DRIVE SUPPORT BADGE (Uncomment when live on Product Hunt) -->
-      <!--
-      <div style="display: flex; align-items: center; margin-top: 15px;">
-        <a href="https://www.producthunt.com/posts/salarytools?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-salarytools" target="_blank">
-          <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=YOUR_POST_ID&theme=dark" alt="SalaryTools - Free salary calculators | Product Hunt" style="width: 250px; height: 54px; display: block;" width="250" height="54" />
-        </a>
+      <div class="ft-logo" style="margin-bottom: 8px;">Salary<em>Tools</em></div>
+      <div class="ft-tagline" style="font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">Free salary calculators for US workers.</div>
+      
+      <!-- Agency Promo Card -->
+      <div style="margin-top: 14px; padding: 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #5B9DF5; margin-bottom: 4px;">⚡ NEED GROWTH?</div>
+        <div style="font-size: 11.5px; color: rgba(255,255,255,0.65); line-height: 1.45; margin-bottom: 10px;">Our AI agency builds custom chatbots, sales agents, & automations to double your revenue.</div>
+        <a href="https://socialninjas.in/contact" target="_blank" style="font-size: 11.5px; font-weight: 700; color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: color 0.15s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#fff'">Get Free Growth Audit →</a>
       </div>
-      -->
     </div>
-    <div class="ft-col">
-      <h4>Tools</h4>
-      <a href="/">Hourly ↔ Salary Converter</a>
-      <a href="/salary-calculator">Take-Home Pay Calculator</a>
+
+    <!-- Local Tools Column -->
+    <div class="ft-col" style="display: flex; flex-direction: column; gap: 8px;">
+      <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #fff; margin-bottom: 4px;">Calculators</h4>
+      <a href="/" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">Hourly ↔ Salary Converter</a>
+      <a href="/salary-calculator" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">Take-Home Pay Calculator</a>
     </div>
-    <div class="ft-col">
-      <h4>Guides</h4>
-      <a href="/blog/hourly-to-salary-guide">Hourly to Salary Guide</a>
-      <a href="/blog/us-take-home-pay-guide">Take-Home Pay Guide</a>
-      <a href="/blog/salary-negotiation-guide">Salary Negotiation</a>
-      <a href="/blog/401k-guide-beginners">401k Guide</a>
+    
+    <!-- Cross Promo Column -->
+    <div class="ft-col" style="display: flex; flex-direction: column; gap: 8px;">
+      <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #fff; margin-bottom: 4px;">Free Ninja Tools</h4>
+      <a href="https://linkwa.in" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">WhatsApp Link Generator</a>
+      <a href="https://salary.socialninjas.in" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">US Salary Tax Calculator</a>
+      <a href="https://mortgage.socialninjas.in" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">Mortgage Pay Calculator</a>
+      <a href="https://fit.socialninjas.in" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">Fit Ninja Fitness Planner</a>
     </div>
-    <div class="ft-col">
-      <h4>Company</h4>
-      <a href="/about">About</a>
-      <a href="/privacy">Privacy Policy</a>
+
+    <!-- Guides Column -->
+    <div class="ft-col" style="display: flex; flex-direction: column; gap: 8px;">
+      <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #fff; margin-bottom: 4px;">Guides</h4>
+      <a href="/blog/hourly-to-salary-guide" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">Hourly to Salary Guide</a>
+      <a href="/blog/us-take-home-pay-guide" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">Take-Home Pay Guide</a>
+      <a href="/blog/salary-negotiation-guide" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">Salary Negotiation</a>
+    </div>
+
+    <!-- Company Column -->
+    <div class="ft-col" style="display: flex; flex-direction: column; gap: 8px;">
+      <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #fff; margin-bottom: 4px;">Company</h4>
+      <a href="/about" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">About Us</a>
+      <a href="/privacy" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">Privacy Policy</a>
     </div>
   </div>
-  <div class="ft-copy">
-    © 2025 Salary Tools · Free US salary calculators · Powered by <a href="https://socialninjas.in" target="_blank" style="color: #5B9DF5; text-decoration: none; font-weight: 600;">Social Ninja's AI Agency</a> · <a href="/privacy" style="color:#475569;">Privacy</a>
+  
+  <div class="ft-copy" style="width: 100%; text-align: center; font-size: 11.5px; color: #475569; margin-top: 30px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.05);">
+    © 2025 Salary Tools · Free US salary calculators · Built by <a href="https://socialninjas.in" target="_blank" style="color: #5B9DF5; text-decoration: none; font-weight: 600;">Social Ninja's AI Agency</a>
   </div>
 </footer>
 
