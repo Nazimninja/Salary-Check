@@ -171,7 +171,7 @@ import Base from '../layouts/Base.astro';
         </div>
       </div>
 
-      <button class="btn-primary" onclick="calc()">
+      <button class="btn-primary" onclick="calc(true)">
         <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
         Calculate All Pay Periods
       </button>
@@ -358,7 +358,7 @@ function setDir(d, btn) {
 function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
 function fmtDec(n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
 
-function calc() {
+function calc(shouldScroll = false) {
   const rate = parseFloat(document.getElementById('rate').value) || 0;
   if (rate <= 0) {
     ['mainResult','equivCard','refCard'].forEach(id => {
@@ -457,6 +457,13 @@ function calc() {
   ['mainResult','equivCard','refCard'].forEach(id => {
     document.getElementById(id).className = 'card result-show';
   });
+
+  if (shouldScroll && window.innerWidth <= 760) {
+    const el = document.getElementById('mainResult');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }
 
 function faq(el) {

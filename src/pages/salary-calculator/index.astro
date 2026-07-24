@@ -248,7 +248,7 @@ import Base from '../../layouts/Base.astro';
         </div>
       </div>
 
-      <button class="btn-primary" onclick="calc()">
+      <button class="btn-primary" onclick="calc(true)">
         <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
         Calculate Take-Home Pay
       </button>
@@ -508,7 +508,7 @@ function calcState(taxable, stateCode, filing) {
   return tax;
 }
 
-function calc() {
+function calc(shouldScroll = false) {
   const salary = parseFloat(document.getElementById('salary').value) || 0;
   if (salary <= 0) {
     ['mainResult','taxCard','compCard'].forEach(id => {
@@ -636,6 +636,13 @@ function calc() {
   }
 
   ['mainResult','taxCard'].forEach(id => document.getElementById(id).className = 'card result-show');
+
+  if (shouldScroll && window.innerWidth <= 760) {
+    const el = document.getElementById('mainResult');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }
 
 function getMarginalRate(taxable, filing) {

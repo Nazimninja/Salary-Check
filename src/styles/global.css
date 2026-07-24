@@ -53,7 +53,7 @@ nav {
   border-bottom: 1px solid var(--bd);
   height: 60px; padding: 0 2rem;
   display: flex; align-items: center; justify-content: space-between;
-  position: sticky; top: 0; z-index: 100;
+  position: sticky; top: 0; z-index: 1100;
 }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .logo-mark {
@@ -289,3 +289,102 @@ select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns
   line-height: 1.5;
 }
 .disclaimer-bar strong { color: #78350f; }
+
+/* ════════════════════════════════════════════════════
+   RESPONSIVE / MOBILE-FIRST — COMPREHENSIVE OVERRIDES
+   ════════════════════════════════════════════════════ */
+
+@media (max-width: 480px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+  
+  .container {
+    padding: 0 12px !important;
+  }
+  
+  /* Hero section adjustments */
+  .hero {
+    padding: 1.25rem 12px 0.25rem !important; /* extremely compact */
+  }
+  .hero h1 {
+    font-size: 25px !important;
+    letter-spacing: -0.8px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .hero-sub {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0.75rem !important;
+    padding: 0 8px !important;
+  }
+  
+  /* Hero stats compact layout (retains stats without overflow/clutter) */
+  .hero-stats {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 6px !important;
+    background: var(--surf) !important;
+    border: 1px solid var(--bd) !important;
+    border-radius: var(--rl) !important;
+    padding: 8px 6px !important;
+    box-shadow: var(--sh) !important;
+    max-width: 100% !important;
+    margin: 12px auto 0 !important;
+  }
+  .hstat {
+    display: block !important;
+    text-align: center !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+  .hstat + .hstat {
+    border-left: 1px solid var(--bd2) !important;
+  }
+  .hstat-n {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: var(--blue) !important;
+  }
+  .hstat-l {
+    font-size: 8px !important;
+    color: var(--ink3) !important;
+    margin-top: 1px !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Tab Bar adjustments */
+  .tool-switcher {
+    padding: 0 12px !important;
+    margin-top: 0.5rem !important;
+  }
+  .switcher-bar {
+    gap: 6px !important;
+  }
+  .switcher-btn {
+    padding: 8px !important;
+  }
+  .switcher-label {
+    font-size: 12px !important;
+  }
+  .switcher-sub {
+    display: none !important;
+  }
+  
+  /* Tool Grid adjustments */
+  .tool-grid {
+    padding: 0 12px !important;
+    margin-top: 0.5rem !important;
+    gap: 12px !important;
+  }
+  .card {
+    padding: 1rem !important;
+    border-radius: 14px !important;
+  }
+  .card-head {
+    margin-bottom: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+  }
+}
