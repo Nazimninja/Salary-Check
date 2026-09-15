@@ -25,17 +25,24 @@ const jobs = [
   'dental-hygienist','real-estate-agent',
 ];
 
-// Static pages
+// Static & Blog pages
+import { readdirSync } from 'fs';
+const blogDir = new URL('../src/pages/blog', import.meta.url);
+const blogFiles = readdirSync(blogDir)
+  .filter(f => f.endsWith('.astro') && f !== 'index.astro')
+  .map(f => f.replace('.astro', ''));
+
 const staticUrls = [
   { loc: `${BASE_URL}/`, priority: '1.0', changefreq: 'monthly' },
   { loc: `${BASE_URL}/salary-calculator/`, priority: '1.0', changefreq: 'monthly' },
   { loc: `${BASE_URL}/blog/`, priority: '0.8', changefreq: 'weekly' },
-  { loc: `${BASE_URL}/blog/hourly-to-salary-guide/`, priority: '0.9', changefreq: 'monthly' },
-  { loc: `${BASE_URL}/blog/us-take-home-pay-guide/`, priority: '0.9', changefreq: 'monthly' },
-  { loc: `${BASE_URL}/blog/salary-negotiation-guide/`, priority: '0.8', changefreq: 'monthly' },
-  { loc: `${BASE_URL}/blog/401k-guide-beginners/`, priority: '0.8', changefreq: 'monthly' },
   { loc: `${BASE_URL}/about/`, priority: '0.5', changefreq: 'yearly' },
   { loc: `${BASE_URL}/privacy/`, priority: '0.4', changefreq: 'yearly' },
+  ...blogFiles.map(slug => ({
+    loc: `${BASE_URL}/blog/${slug}/`,
+    priority: '0.8',
+    changefreq: 'monthly'
+  }))
 ];
 
 // Programmatic salary pages — 50 states × 30 jobs = 1,500 pages
