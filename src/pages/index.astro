@@ -200,6 +200,14 @@ import Base from '../layouts/Base.astro';
         <div class="brow-section-label">Pay breakdown</div>
         <div class="chart-wrap" id="chartWrap"></div>
       </div>
+
+      <!-- VIRAL SHARE BUTTON -->
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border);">
+        <button id="copySummaryBtn" onclick="copyPaycheckSummary()" style="width:100%;padding:10px 14px;background:var(--bluel);border:1px solid rgba(31,75,153,0.2);border-radius:8px;font-size:13px;font-weight:600;color:var(--blue);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.15s ease;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <span>Copy Paycheck Summary</span>
+        </button>
+      </div>
     </div>
 
     <!-- EQUIVALENT RATES -->
@@ -472,6 +480,39 @@ function faq(el) {
   document.querySelectorAll('.faq-a').forEach(x => x.classList.remove('open'));
   document.querySelectorAll('.faq-icon').forEach(x => x.classList.remove('open'));
   if (!open) { a.classList.add('open'); ic.classList.add('open'); }
+}
+
+function copyPaycheckSummary() {
+  const label = document.getElementById('mainLabel')?.textContent || 'Annual Salary';
+  const val = document.getElementById('mainValue')?.textContent || '';
+  const sub = document.getElementById('mainSub')?.textContent || '';
+  const rows = document.querySelectorAll('#payPeriods .brow');
+  const annual = rows[0]?.querySelector('.brow-val')?.textContent || val;
+  const monthly = rows[1]?.querySelector('.brow-val')?.textContent || '';
+  const biweekly = rows[3]?.querySelector('.brow-val')?.textContent || '';
+  const hourly = rows[rows.length - 1]?.querySelector('.brow-val')?.textContent || '';
+
+  const text = `💰 Salary Breakdown (${label}: ${val})\n` +
+    `• Rate: ${sub}\n` +
+    `• Annual: ${annual}\n` +
+    `• Monthly: ${monthly}\n` +
+    `• Biweekly: ${biweekly}\n` +
+    `• Hourly: ${hourly}\n\n` +
+    `Calculated on Salary Tools: https://salary.socialninjas.in`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('Copied summary to clipboard!');
+  }).catch(() => {
+    showToast('Failed to copy');
+  });
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
 }
 
 window.addEventListener('load', () => {

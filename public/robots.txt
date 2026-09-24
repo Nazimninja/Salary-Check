@@ -1,4 +1,26 @@
 User-agent: *
 Allow: /
 
+# AI Search & LLM Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemaps & Feeds
 Sitemap: https://salary.socialninjas.in/sitemap.xml
+Sitemap: https://salary.socialninjas.in/rss.xml
+# LLMs Manifest: https://salary.socialninjas.in/llms.txt

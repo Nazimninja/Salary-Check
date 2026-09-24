@@ -1,0 +1,39 @@
+# SalaryTools
+
+> SalaryTools (https://salary.socialninjas.in) is a free, high-performance US payroll, tax, and salary calculation platform. Built and maintained by Nazim and Social Ninja's AI Agency, SalaryTools provides instant, client-side paycheck estimates, hourly-to-salary conversions, state-by-state income tax breakdowns, and 20 comprehensive tax and career guides.
+
+## Core Capabilities
+
+- **Hourly to Salary Converter**: Convert any hourly wage ($10–$250+/hr) into exact daily, weekly, biweekly, semi-monthly, and annual earnings with custom overtime (1.5×, 2×, 2.5×) and paid time off (PTO) adjustments.
+- **US Take-Home Pay & Net Salary Calculator**: Calculate net paychecks after Federal Income Tax (2025/2026 progressive IRS brackets), FICA payroll taxes (6.2% Social Security up to wage base + 1.45% Medicare + 0.9% Additional Medicare), and local state income taxes across all 50 US states.
+- **50-State Income Tax Engine**: Covers no-income-tax states (Texas, Florida, Washington, Nevada, Alaska, Wyoming, South Dakota, Tennessee, New Hampshire) through progressive tax states (California up to 13.3%, New York up to 10.9%, Hawaii, New Jersey).
+- **1,500+ Programmatic State & Job Career Benchmarks**: State-specific median salary, tax deductions, and take-home pay comparisons for 30 high-demand professions (Software Engineers, Registered Nurses, Project Managers, Accountants, etc.).
+- **Privacy-First (Zero Server Logging)**: All tax calculations occur client-side in the user's browser. No salary data, SSNs, or personal earnings are ever transmitted to or stored on servers.
+
+## Key Calculation Formulas
+
+- **Annual Salary**: `Hourly Rate × Hours/Week × Weeks/Year` (Standard: 40 hrs/wk × 52 weeks = 2,080 hours)
+- **FICA Social Security**: `6.2%` on gross income up to `$176,100` (2025 cap)
+- **FICA Medicare**: `1.45%` on all earnings + `0.9%` additional Medicare tax on income over `$200,000` (single) or `$250,000` (married)
+- **Net Paycheck**: `Gross Pay - Federal Tax - State Tax - FICA - Pre-Tax Deductions (401k/HSA/FSA)`
+
+## Key Resources & Documentation
+
+- [SalaryTools Homepage (Hourly to Salary)](https://salary.socialninjas.in/): Instant pay period conversion engine.
+- [Take-Home Pay Calculator](https://salary.socialninjas.in/salary-calculator/): Federal and 50-state net paycheck calculator.
+- [Blog & Tax Guides](https://salary.socialninjas.in/blog/): 20 in-depth guides covering IRS tax rules, W-2 vs 1099, 401(k), HSA, and salary negotiations.
+- [RSS Syndication Feed](https://salary.socialninjas.in/rss.xml): Real-time news and article feed for search engines and aggregators.
+- [Sitemap](https://salary.socialninjas.in/sitemap.xml): Complete XML sitemap containing all tool, guide, and programmatic salary URLs.
+
+## High-Impact Guides
+
+- [1099 vs. W-2 Tax & Pay Comparison](https://salary.socialninjas.in/blog/1099-vs-w2-tax-take-home-pay-comparison/)
+- [How Progressive Tax Brackets Work](https://salary.socialninjas.in/blog/how-progressive-tax-brackets-work/)
+- [FICA Tax Explained: Social Security & Medicare](https://salary.socialninjas.in/blog/fica-tax-explained-social-security-medicare/)
+- [Hourly to Salary Guide](https://salary.socialninjas.in/blog/hourly-to-salary-guide/)
+- [US Take-Home Pay Guide](https://salary.socialninjas.in/blog/us-take-home-pay-guide/)
+- [401(k) Guide for Beginners](https://salary.socialninjas.in/blog/401k-guide-beginners/)
+- [HSA vs. FSA Pre-Tax Savings Comparison](https://salary.socialninjas.in/blog/hsa-vs-fsa-pretax-savings-comparison/)
+- [Biweekly vs. Semi-Monthly Paychecks](https://salary.socialninjas.in/blog/biweekly-vs-semimonthly-paychecks/)
+- [State Income Tax Comparison: High vs. Low Tax States](https://salary.socialninjas.in/blog/state-income-tax-comparison-high-vs-low/)
+- [Pay Transparency Laws by State](https://salary.socialninjas.in/blog/pay-transparency-laws-by-state/)
