@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const states = [
+  { name: 'Alabama', code: 'al', taxRate: '5.0%' },
+  { name: 'Alaska', code: 'ak', taxRate: '0.0%' },
+  { name: 'Arizona', code: 'az', taxRate: '2.5%' },
+  { name: 'Arkansas', code: 'ar', taxRate: '4.4%' },
+  { name: 'California', code: 'ca', taxRate: '9.3%' },
+  { name: 'Colorado', code: 'co', taxRate: '4.4%' },
+  { name: 'Connecticut', code: 'ct', taxRate: '6.5%' },
+  { name: 'Delaware', code: 'de', taxRate: '6.6%' },
+  { name: 'Florida', code: 'fl', taxRate: '0.0%' },
+  { name: 'Georgia', code: 'ga', taxRate: '5.5%' },
+  { name: 'Hawaii', code: 'hi', taxRate: '8.0%' },
+  { name: 'Idaho', code: 'id', taxRate: '5.8%' },
+  { name: 'Illinois', code: 'il', taxRate: '4.95%' },
+  { name: 'Indiana', code: 'in', taxRate: '3.23%' },
+  { name: 'Iowa', code: 'ia', taxRate: '6.0%' },
+  { name: 'Kansas', code: 'ks', taxRate: '5.7%' },
+  { name: 'Kentucky', code: 'ky', taxRate: '4.5%' },
+  { name: 'Louisiana', code: 'la', taxRate: '4.25%' },
+  { name: 'Maine', code: 'me', taxRate: '7.5%' },
+  { name: 'Maryland', code: 'md', taxRate: '5.75%' },
+  { name: 'Massachusetts', code: 'ma', taxRate: '5.0%' },
+  { name: 'Michigan', code: 'mi', taxRate: '4.25%' },
+  { name: 'Minnesota', code: 'mn', taxRate: '9.85%' },
+  { name: 'Mississippi', code: 'ms', taxRate: '5.0%' },
+  { name: 'Missouri', code: 'mo', taxRate: '5.4%' },
+  { name: 'Montana', code: 'mt', taxRate: '6.9%' },
+  { name: 'Nebraska', code: 'ne', taxRate: '6.64%' },
+  { name: 'Nevada', code: 'nv', taxRate: '0.0%' },
+  { name: 'New Hampshire', code: 'nh', taxRate: '0.0%' },
+  { name: 'New Jersey', code: 'nj', taxRate: '6.37%' },
+  { name: 'New Mexico', code: 'nm', taxRate: '4.9%' },
+  { name: 'New York', code: 'ny', taxRate: '6.85%' },
+  { name: 'North Carolina', code: 'nc', taxRate: '4.99%' },
+  { name: 'North Dakota', code: 'nd', taxRate: '2.90%' },
+  { name: 'Ohio', code: 'oh', taxRate: '3.99%' },
+  { name: 'Oklahoma', code: 'ok', taxRate: '4.75%' },
+  { name: 'Oregon', code: 'or', taxRate: '9.9%' },
+  { name: 'Pennsylvania', code: 'pa', taxRate: '3.07%' },
+  { name: 'Rhode Island', code: 'ri', taxRate: '5.99%' },
+  { name: 'South Carolina', code: 'sc', taxRate: '6.5%' },
+  { name: 'South Dakota', code: 'sd', taxRate: '0.0%' },
+  { name: 'Tennessee', code: 'tn', taxRate: '0.0%' },
+  { name: 'Texas', code: 'tx', taxRate: '0.0%' },
+  { name: 'Utah', code: 'ut', taxRate: '4.85%' },
+  { name: 'Vermont', code: 'vt', taxRate: '8.75%' },
+  { name: 'Virginia', code: 'va', taxRate: '5.75%' },
+  { name: 'Washington', code: 'wa', taxRate: '0.0%' },
+  { name: 'West Virginia', code: 'wv', taxRate: '6.5%' },
+  { name: 'Wisconsin', code: 'wi', taxRate: '7.65%' },
+  { name: 'Wyoming', code: 'wy', taxRate: '0.0%' },
+];
+
+const title = "US Salary Directory 2025 | Average Pay by State & Profession";
+const description = "Explore 2025 average salaries, wage benchmarks, and take-home pay across all 50 US states. Compare compensation for top careers from software engineering to nursing.";
+---
+
+<Base title={title} description={description} canonical="https://salary.socialninjas.in/salary/">
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "US Salary Directory by State",
+    "description": description,
+    "url": "https://salary.socialninjas.in/salary/"
+  })} />
+
+  <div class="container" style="max-width: 1060px; margin: 40px auto; padding: 0 20px;">
+    <!-- Breadcrumbs -->
+    <nav style="font-size: 13px; color: var(--ink3); margin-bottom: 24px; display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="color: var(--blue); text-decoration: none;">Home</a>
+      <span>/</span>
+      <span>Salary Directory</span>
+    </nav>
+
+    <div style="text-align: center; margin-bottom: 40px;">
+      <span style="display:inline-block; padding: 4px 14px; background: rgba(31,75,153,0.08); color: #1F4B99; border-radius: 20px; font-weight: 600; font-size: 13px; margin-bottom: 12px;">
+        All 50 US States · 2025 Wage Data
+      </span>
+      <h1 style="font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; color: #141414; line-height: 1.15; margin-bottom: 14px;">
+        US Salary Directory by State
+      </h1>
+      <p style="font-size: 16px; color: #475569; max-width: 680px; margin: 0 auto; line-height: 1.6;">
+        Select your state to explore typical base salaries, state income tax withholding, and take-home pay estimates across 30 high-demand professions.
+      </p>
+    </div>
+
+    <!-- STATES GRID -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-bottom: 50px;">
+      {states.map(st => (
+        <a href={`/salary/${st.code}/`} style="background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; text-decoration: none; display: flex; justify-content: space-between; align-items: center; transition: all 0.15s ease;" onmouseover="this.style.borderColor='#1F4B99'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='none';">
+          <div>
+            <div style="font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 2px;">
+              {st.name}
+            </div>
+            <div style="font-size: 12px; color: #64748b;">
+              Tax: {st.taxRate} {st.taxRate === '0.0%' ? '🔥 (No Tax)' : ''}
+            </div>
+          </div>
+          <span style="font-size: 14px; color: var(--blue); font-weight: 700;">→</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

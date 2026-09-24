@@ -105,7 +105,9 @@ const ogImage = 'https://salary.socialninjas.in/og-image.png';
   <div class="nav-tools">
     <a href="/" class={`nav-tool-btn ${page === 'hourly' ? 'active' : ''}`}>Hourly ↔ Salary</a>
     <a href="/salary-calculator" class={`nav-tool-btn ${page === 'salary' ? 'active' : ''}`}>Take-Home Pay</a>
-    <a href="/blog" class={`nav-tool-btn ${page === 'blog' ? 'active' : ''}`}>Blog</a>
+    <a href="/hourly" class={`nav-tool-btn ${page === 'hourly-dir' ? 'active' : ''}`}>Hourly Chart</a>
+    <a href="/salary" class={`nav-tool-btn ${page === 'salary-dir' ? 'active' : ''}`}>State Salaries</a>
+    <a href="/blog" class={`nav-tool-btn ${page === 'blog' ? 'active' : ''}`}>Guides</a>
   </div>
   <div class="nav-right">
     <span class="nav-pill">🇺🇸 US Tools</span>
@@ -126,6 +128,8 @@ const ogImage = 'https://salary.socialninjas.in/og-image.png';
   <div class="drawer-links">
     <a href="/" class={`drawer-link ${page === 'hourly' ? 'active' : ''}`}>Hourly ↔ Salary Converter</a>
     <a href="/salary-calculator" class={`drawer-link ${page === 'salary' ? 'active' : ''}`}>Take-Home Pay Calculator</a>
+    <a href="/hourly" class={`drawer-link ${page === 'hourly-dir' ? 'active' : ''}`}>Hourly Wage Directory</a>
+    <a href="/salary" class={`drawer-link ${page === 'salary-dir' ? 'active' : ''}`}>State Salary Directory</a>
     <a href="/blog" class={`drawer-link ${page === 'blog' ? 'active' : ''}`}>Guides & Blog</a>
   </div>
   
@@ -281,9 +285,11 @@ const ogImage = 'https://salary.socialninjas.in/og-image.png';
 
     <!-- Local Tools Column -->
     <div class="ft-col" style="display: flex; flex-direction: column; gap: 8px;">
-      <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #fff; margin-bottom: 4px;">Calculators</h4>
+      <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #fff; margin-bottom: 4px;">Calculators & Directories</h4>
       <a href="/" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">Hourly ↔ Salary Converter</a>
       <a href="/salary-calculator" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">Take-Home Pay Calculator</a>
+      <a href="/hourly" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">Hourly Wage Directory ($15–$100)</a>
+      <a href="/salary" style="font-size: 12.5px; color: #64748b; text-decoration: none; transition: color 0.14s;" onmouseover="this.style.color='#5B9DF5'" onmouseout="this.style.color='#64748b'">50 State Salary Directory</a>
     </div>
     
     <!-- Cross Promo Column -->

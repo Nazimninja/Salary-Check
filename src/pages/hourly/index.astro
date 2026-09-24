@@ -1,0 +1,123 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const rates = [
+  { hourly: 15, slug: '15-an-hour-is-how-much-a-year' },
+  { hourly: 16, slug: '16-an-hour-is-how-much-a-year' },
+  { hourly: 17, slug: '17-an-hour-is-how-much-a-year' },
+  { hourly: 18, slug: '18-an-hour-is-how-much-a-year' },
+  { hourly: 19, slug: '19-an-hour-is-how-much-a-year' },
+  { hourly: 20, slug: '20-an-hour-is-how-much-a-year' },
+  { hourly: 21, slug: '21-an-hour-is-how-much-a-year' },
+  { hourly: 22, slug: '22-an-hour-is-how-much-a-year' },
+  { hourly: 23, slug: '23-an-hour-is-how-much-a-year' },
+  { hourly: 24, slug: '24-an-hour-is-how-much-a-year' },
+  { hourly: 25, slug: '25-an-hour-is-how-much-a-year' },
+  { hourly: 26, slug: '26-an-hour-is-how-much-a-year' },
+  { hourly: 27, slug: '27-an-hour-is-how-much-a-year' },
+  { hourly: 28, slug: '28-an-hour-is-how-much-a-year' },
+  { hourly: 29, slug: '29-an-hour-is-how-much-a-year' },
+  { hourly: 30, slug: '30-an-hour-is-how-much-a-year' },
+  { hourly: 32, slug: '32-an-hour-is-how-much-a-year' },
+  { hourly: 35, slug: '35-an-hour-is-how-much-a-year' },
+  { hourly: 38, slug: '38-an-hour-is-how-much-a-year' },
+  { hourly: 40, slug: '40-an-hour-is-how-much-a-year' },
+  { hourly: 45, slug: '45-an-hour-is-how-much-a-year' },
+  { hourly: 50, slug: '50-an-hour-is-how-much-a-year' },
+  { hourly: 55, slug: '55-an-hour-is-how-much-a-year' },
+  { hourly: 60, slug: '60-an-hour-is-how-much-a-year' },
+  { hourly: 65, slug: '65-an-hour-is-how-much-a-year' },
+  { hourly: 70, slug: '70-an-hour-is-how-much-a-year' },
+  { hourly: 75, slug: '75-an-hour-is-how-much-a-year' },
+  { hourly: 80, slug: '80-an-hour-is-how-much-a-year' },
+  { hourly: 90, slug: '90-an-hour-is-how-much-a-year' },
+  { hourly: 100, slug: '100-an-hour-is-how-much-a-year' },
+].map(r => {
+  const annual = r.hourly * 40 * 52;
+  const monthly = Math.round(annual / 12);
+  const biweekly = Math.round(annual / 26);
+  return { ...r, annual, monthly, biweekly };
+});
+
+const title = "Hourly to Salary Conversion Chart | Full Wage Directory 2025";
+const description = "Comprehensive hourly to salary conversion chart. See exact annual, monthly, and biweekly paychecks for $15/hr up to $100/hr based on standard 40-hour workweeks.";
+---
+
+<Base title={title} description={description} canonical="https://salary.socialninjas.in/hourly/">
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Hourly to Annual Salary Conversion Directory",
+    "description": description,
+    "url": "https://salary.socialninjas.in/hourly/"
+  })} />
+
+  <div class="container" style="max-width: 1060px; margin: 40px auto; padding: 0 20px;">
+    <!-- Breadcrumbs -->
+    <nav style="font-size: 13px; color: var(--ink3); margin-bottom: 24px; display: flex; align-items: center; gap: 8px;">
+      <a href="/" style="color: var(--blue); text-decoration: none;">Home</a>
+      <span>/</span>
+      <span>Hourly Wage Directory</span>
+    </nav>
+
+    <div style="text-align: center; margin-bottom: 40px;">
+      <span style="display:inline-block; padding: 4px 14px; background: rgba(31,75,153,0.08); color: #1F4B99; border-radius: 20px; font-weight: 600; font-size: 13px; margin-bottom: 12px;">
+        2025 Wage Conversion Guide
+      </span>
+      <h1 style="font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; color: #141414; line-height: 1.15; margin-bottom: 14px;">
+        Hourly to Annual Salary Directory
+      </h1>
+      <p style="font-size: 16px; color: #475569; max-width: 680px; margin: 0 auto; line-height: 1.6;">
+        Select your hourly wage below to view complete paycheck breakdowns including gross annual, monthly, biweekly pay, and estimated take-home income.
+      </p>
+    </div>
+
+    <!-- WAGE CARDS GRID -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-bottom: 50px;">
+      {rates.map(r => (
+        <a href={`/hourly/${r.slug}/`} style="background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-decoration: none; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='#1F4B99'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='none';">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 20px; font-weight: 800; color: #1F4B99;">${r.hourly}/hr</span>
+              <span style="font-size: 11px; font-weight: 600; color: #059669; background: #ecfdf5; padding: 2px 8px; border-radius: 10px;">Full-time</span>
+            </div>
+            <div style="font-size: 14px; font-weight: 700; color: #1e293b; margin-bottom: 4px;">
+              ${r.annual.toLocaleString()} / year
+            </div>
+            <div style="font-size: 12px; color: #64748b;">
+              ${r.monthly.toLocaleString()}/mo · ${r.biweekly.toLocaleString()} biweekly
+            </div>
+          </div>
+          <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid #f1f5f9; font-size: 12px; font-weight: 600; color: var(--blue); display: flex; align-items: center; justify-content: space-between;">
+            <span>View Full Breakdown</span>
+            <span>→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- QUICK FAQ / CONVERSION RULES -->
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 32px; margin-bottom: 40px;">
+      <h2 style="font-size: 22px; font-weight: 700; color: #0f172a; margin-bottom: 16px;">
+        How is Hourly Wage Converted to Salary?
+      </h2>
+      <p style="font-size: 14.5px; color: #475569; line-height: 1.7; margin-bottom: 14px;">
+        To calculate annual salary from an hourly rate, multiply your wage by <strong>2,080 working hours</strong> (40 hours per week × 52 weeks in a calendar year).
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 20px;">
+        <div style="background: #fff; padding: 16px; border-radius: 10px; border: 1px solid #e2e8f0;">
+          <div style="font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase;">Annual Formula</div>
+          <div style="font-size: 15px; font-weight: 700; color: #0f172a; margin-top: 4px;">Hourly × 2,080</div>
+        </div>
+        <div style="background: #fff; padding: 16px; border-radius: 10px; border: 1px solid #e2e8f0;">
+          <div style="font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase;">Monthly Formula</div>
+          <div style="font-size: 15px; font-weight: 700; color: #0f172a; margin-top: 4px;">Annual ÷ 12</div>
+        </div>
+        <div style="background: #fff; padding: 16px; border-radius: 10px; border: 1px solid #e2e8f0;">
+          <div style="font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase;">Biweekly Check</div>
+          <div style="font-size: 15px; font-weight: 700; color: #0f172a; margin-top: 4px;">Annual ÷ 26</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>

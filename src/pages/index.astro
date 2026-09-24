@@ -291,23 +291,45 @@ import Base from '../layouts/Base.astro';
 </section>
 
 <!-- POPULAR HOURLY PAY CALCULATIONS (PSEO) -->
+<section style="padding:0 0 2rem;">
+  <div class="container">
+    <div style="background: #ffffff; border: 1px solid var(--bd2); border-radius: 20px; padding: 2rem;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
+        <h3 style="font-family:var(--font-display); font-size:19px; font-weight:700; color:var(--ink); margin:0;">Popular Hourly Wage Conversions</h3>
+        <a href="/hourly/" style="font-size:13px; font-weight:700; color:var(--blue); text-decoration:none;">View All 30 Hourly Guides →</a>
+      </div>
+      <p style="font-size:13.5px; color:var(--ink3); margin-bottom:18px;">Calculate annual salary, monthly pay, biweekly paycheck, and estimated taxes for standard US hourly rates:</p>
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px;">
+        <a href="/hourly/15-an-hour-is-how-much-a-year/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--blue); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>$15/hr</span><span style="color:#64748b;">$31,200/yr</span></a>
+        <a href="/hourly/20-an-hour-is-how-much-a-year/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--blue); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>$20/hr</span><span style="color:#64748b;">$41,600/yr</span></a>
+        <a href="/hourly/25-an-hour-is-how-much-a-year/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--blue); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>$25/hr</span><span style="color:#64748b;">$52,000/yr</span></a>
+        <a href="/hourly/30-an-hour-is-how-much-a-year/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--blue); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>$30/hr</span><span style="color:#64748b;">$62,400/yr</span></a>
+        <a href="/hourly/35-an-hour-is-how-much-a-year/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--blue); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>$35/hr</span><span style="color:#64748b;">$72,800/yr</span></a>
+        <a href="/hourly/40-an-hour-is-how-much-a-year/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--blue); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>$40/hr</span><span style="color:#64748b;">$83,200/yr</span></a>
+        <a href="/hourly/50-an-hour-is-how-much-a-year/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--blue); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>$50/hr</span><span style="color:#64748b;">$104,000/yr</span></a>
+        <a href="/hourly/75-an-hour-is-how-much-a-year/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--blue); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>$75/hr</span><span style="color:#64748b;">$156,000/yr</span></a>
+        <a href="/hourly/100-an-hour-is-how-much-a-year/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--blue); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>$100/hr</span><span style="color:#64748b;">$208,000/yr</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- US STATE SALARY DIRECTORY -->
 <section style="padding:0 0 3rem;">
   <div class="container">
     <div style="background: #ffffff; border: 1px solid var(--bd2); border-radius: 20px; padding: 2rem;">
-      <h3 style="font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--ink); margin-bottom:12px;">Popular Hourly Wage Conversions</h3>
-      <p style="font-size:13px; color:var(--ink3); margin-bottom:16px;">Calculate annual salary, monthly pay, biweekly paycheck, and taxes for standard US hourly rates:</p>
-      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px;">
-        <a href="/hourly/15-an-hour-is-how-much-a-year" style="font-size:13px; color:var(--blue); font-weight:600; text-decoration:none;">$15/hr → Annual Pay</a>
-        <a href="/hourly/20-an-hour-is-how-much-a-year" style="font-size:13px; color:var(--blue); font-weight:600; text-decoration:none;">$20/hr → Annual Pay</a>
-        <a href="/hourly/25-an-hour-is-how-much-a-year" style="font-size:13px; color:var(--blue); font-weight:600; text-decoration:none;">$25/hr → Annual Pay</a>
-        <a href="/hourly/30-an-hour-is-how-much-a-year" style="font-size:13px; color:var(--blue); font-weight:600; text-decoration:none;">$30/hr → Annual Pay</a>
-        <a href="/hourly/35-an-hour-is-how-much-a-year" style="font-size:13px; color:var(--blue); font-weight:600; text-decoration:none;">$35/hr → Annual Pay</a>
-        <a href="/hourly/40-an-hour-is-how-much-a-year" style="font-size:13px; color:var(--blue); font-weight:600; text-decoration:none;">$40/hr → Annual Pay</a>
-        <a href="/hourly/45-an-hour-is-how-much-a-year" style="font-size:13px; color:var(--blue); font-weight:600; text-decoration:none;">$45/hr → Annual Pay</a>
-        <a href="/hourly/50-an-hour-is-how-much-a-year" style="font-size:13px; color:var(--blue); font-weight:600; text-decoration:none;">$50/hr → Annual Pay</a>
-        <a href="/hourly/60-an-hour-is-how-much-a-year" style="font-size:13px; color:var(--blue); font-weight:600; text-decoration:none;">$60/hr → Annual Pay</a>
-        <a href="/hourly/75-an-hour-is-how-much-a-year" style="font-size:13px; color:var(--blue); font-weight:600; text-decoration:none;">$75/hr → Annual Pay</a>
-        <a href="/hourly/100-an-hour-is-how-much-a-year" style="font-size:13px; color:var(--blue); font-weight:600; text-decoration:none;">$100/hr → Annual Pay</a>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
+        <h3 style="font-family:var(--font-display); font-size:19px; font-weight:700; color:var(--ink); margin:0;">US Salary Directory by State</h3>
+        <a href="/salary/" style="font-size:13px; font-weight:700; color:var(--blue); text-decoration:none;">Explore All 50 States →</a>
+      </div>
+      <p style="font-size:13.5px; color:var(--ink3); margin-bottom:18px;">Compare average salaries and take-home pay after state taxes across top US metropolitan economies:</p>
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px;">
+        <a href="/salary/ca/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--ink); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>California</span><span style="color:var(--blue);">View →</span></a>
+        <a href="/salary/tx/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--ink); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>Texas (No Tax)</span><span style="color:var(--blue);">View →</span></a>
+        <a href="/salary/ny/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--ink); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>New York</span><span style="color:var(--blue);">View →</span></a>
+        <a href="/salary/fl/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--ink); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>Florida (No Tax)</span><span style="color:var(--blue);">View →</span></a>
+        <a href="/salary/wa/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--ink); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>Washington</span><span style="color:var(--blue);">View →</span></a>
+        <a href="/salary/il/" style="padding:10px 14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; color:var(--ink); font-weight:600; text-decoration:none; display:flex; justify-content:space-between;"><span>Illinois</span><span style="color:var(--blue);">View →</span></a>
       </div>
     </div>
   </div>

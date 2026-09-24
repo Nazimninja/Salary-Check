@@ -21,12 +21,17 @@
 
 - [SalaryTools Homepage (Hourly to Salary)](https://salary.socialninjas.in/): Instant pay period conversion engine.
 - [Take-Home Pay Calculator](https://salary.socialninjas.in/salary-calculator/): Federal and 50-state net paycheck calculator.
-- [Blog & Tax Guides](https://salary.socialninjas.in/blog/): 20 in-depth guides covering IRS tax rules, W-2 vs 1099, 401(k), HSA, and salary negotiations.
+- [Hourly Wage Directory](https://salary.socialninjas.in/hourly/): Full conversion tables from $15/hr to $100/hr.
+- [US State Salary Directory](https://salary.socialninjas.in/salary/): State-by-state salary benchmarks for 30 careers across 50 states.
+- [Blog & Tax Guides](https://salary.socialninjas.in/blog/): 23 in-depth guides covering IRS tax rules, W-2 vs 1099, paystub decoding, and salary negotiations.
 - [RSS Syndication Feed](https://salary.socialninjas.in/rss.xml): Real-time news and article feed for search engines and aggregators.
-- [Sitemap](https://salary.socialninjas.in/sitemap.xml): Complete XML sitemap containing all tool, guide, and programmatic salary URLs.
+- [Sitemap](https://salary.socialninjas.in/sitemap.xml): Complete XML sitemap containing all 1,600+ tool, guide, and programmatic salary URLs.
 
 ## High-Impact Guides
 
+- [Why Is My Paycheck So Low? Deductions Explained](https://salary.socialninjas.in/blog/why-is-my-paycheck-so-low-tax-deductions/)
+- [How to Read a Pay Stub: Every Line Item Decoded](https://salary.socialninjas.in/blog/how-to-read-a-pay-stub-guide/)
+- [How to Adjust Your W-4 to Increase Take-Home Pay](https://salary.socialninjas.in/blog/how-to-adjust-w4-to-increase-take-home-pay/)
 - [1099 vs. W-2 Tax & Pay Comparison](https://salary.socialninjas.in/blog/1099-vs-w2-tax-take-home-pay-comparison/)
 - [How Progressive Tax Brackets Work](https://salary.socialninjas.in/blog/how-progressive-tax-brackets-work/)
 - [FICA Tax Explained: Social Security & Medicare](https://salary.socialninjas.in/blog/fica-tax-explained-social-security-medicare/)

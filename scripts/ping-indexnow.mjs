@@ -6,6 +6,9 @@ const KEY = '8f7f1ad4b9714ebca808d4b3c95e1d90';
 const KEY_LOCATION = `https://${HOST}/8f7f1ad4b9714ebca808d4b3c95e1d90.txt`;
 
 const blogs = [
+  'why-is-my-paycheck-so-low-tax-deductions',
+  'how-to-read-a-pay-stub-guide',
+  'how-to-adjust-w4-to-increase-take-home-pay',
   '1099-vs-w2-tax-take-home-pay-comparison',
   'pay-transparency-laws-by-state',
   'biweekly-vs-semimonthly-paychecks',
@@ -31,6 +34,8 @@ const blogs = [
 const urls = [
   `https://${HOST}/`,
   `https://${HOST}/salary-calculator/`,
+  `https://${HOST}/hourly/`,
+  `https://${HOST}/salary/`,
   `https://${HOST}/blog/`,
   `https://${HOST}/about/`,
   `https://${HOST}/privacy/`,
