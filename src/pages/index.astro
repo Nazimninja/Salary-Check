@@ -34,9 +34,16 @@ import Base from '../layouts/Base.astro';
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-chip">
-    <span class="hero-chip-dot"></span>
-    US Salary Calculator · Updated 2025
+  <div style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; margin-bottom: 14px;">
+    <div class="hero-chip" style="margin-bottom: 0;">
+      <span class="hero-chip-dot"></span>
+      US Salary Calculator · Updated 2025
+    </div>
+    <div style="margin-bottom: 0; display: inline-flex; align-items: center;">
+      <a href="https://www.producthunt.com/products/salary-tools?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-salary-tools" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center;">
+        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1202125&theme=light" alt="Salary Tools - Featured on Product Hunt | Product Hunt" style="height: 36px; width: auto; display: block;" height="36" />
+      </a>
+    </div>
   </div>
   <h1>Convert <strong>hourly wage</strong><br>to annual salary</h1>
   <p class="hero-sub">Instantly see your annual, monthly, weekly, and daily pay. Adjust for overtime, PTO days, and custom hours. Free, no login.</p>
